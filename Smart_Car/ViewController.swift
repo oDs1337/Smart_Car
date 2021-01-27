@@ -7,9 +7,10 @@
 
 import UIKit
 
+//  extensions
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //  init important variables
     var kindOfFuel:String = ""
@@ -42,12 +43,28 @@ class ViewController: UIViewController {
         
         defaultConfig()
         
+        fuelConsumptionTextField.delegate = self
         
         
+    }
+    
+    //  Allow to fetch only numbers
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
+        let withDecimal = (
+            string == NumberFormatter().decimalSeparator &&
+            textField.text?.contains(string) == false
+        )
+        return isNumber || withDecimal
     }
     //  default config
     func defaultConfig()
     {
+        
+        
+
+        
         //  dismiss keyboard
         dismissKeyboard()
         
@@ -68,6 +85,57 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    //  check if string is empty
+    /*
+        result: true = is empty
+        result: false = is not empty
+     */
+    func isEmptyCheck(data: String) -> Bool
+    {
+        var result:Bool = true
+        
+        if data.isEmpty
+        {
+            result = true
+        }
+        else if data.isEmpty != true
+        {
+            result = false
+        }
+        else
+        {
+            result = true
+        }
+        
+        return result
+    }
+    
+    //  check if text field's data is a number
+    /*
+        result: true = is a number
+        result: false = is not a number
+     */
+    /*
+    func isNumberCheck(data: String) -> Bool
+    {
+        var result:Bool = false
+        
+        if data.isNumber
+        {
+            result = true
+        }
+        else if data.isNumber != true
+        {
+            result = false
+        }
+        else
+        {
+            result = false
+        }
+        
+        return result
+    }
+    */
     
     
     
@@ -108,7 +176,16 @@ class ViewController: UIViewController {
     }
     
     //  connect buttons
-    @IBAction func submitButton(_ sender: Any) {
+    @IBAction func submitButton(_ sender: Any)
+    {
+        if(isNumberCheck(data: fuelConsumptionTextField.text!) == true)
+        {
+            labelResult.text = "fuel is a number"
+        }
+        else if(isNumberCheck(data: fuelConsumptionTextField.text!) == false)
+        {
+            labelResult.text = "fuel is not a number"
+        }
     }
     
     
