@@ -41,9 +41,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //  delegate to allow only numbers
+        fuelConsumptionTextField.delegate = self
+        distanceTextField.delegate = self
+        
+        //  init default config
         defaultConfig()
         
-        fuelConsumptionTextField.delegate = self
         
         
     }
@@ -58,12 +62,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         )
         return isNumber || withDecimal
     }
+    
+    
     //  default config
     func defaultConfig()
     {
-        
-        
-
+       
         
         //  dismiss keyboard
         dismissKeyboard()
@@ -110,35 +114,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return result
     }
     
-    //  check if text field's data is a number
-    /*
-        result: true = is a number
-        result: false = is not a number
-     */
-    /*
-    func isNumberCheck(data: String) -> Bool
-    {
-        var result:Bool = false
-        
-        if data.isNumber
-        {
-            result = true
-        }
-        else if data.isNumber != true
-        {
-            result = false
-        }
-        else
-        {
-            result = false
-        }
-        
-        return result
-    }
-    */
-    
-    
-    
     //  connect options
     //  fuel options
     @IBAction func didKindOfFuelChanged(_ sender: UISegmentedControl)
@@ -178,14 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  connect buttons
     @IBAction func submitButton(_ sender: Any)
     {
-        if(isNumberCheck(data: fuelConsumptionTextField.text!) == true)
-        {
-            labelResult.text = "fuel is a number"
-        }
-        else if(isNumberCheck(data: fuelConsumptionTextField.text!) == false)
-        {
-            labelResult.text = "fuel is not a number"
-        }
+        
     }
     
     
