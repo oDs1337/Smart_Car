@@ -7,7 +7,11 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
+    
+    
     
     //  connect labels
     //  fuel constumption
@@ -33,7 +37,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        defaultConfig()
+        
+        
+        
     }
+    //  default config
+    func defaultConfig()
+    {
+        //  dismiss keyboard
+        dismissKeyboard()
+    }
+    
+    //  dismiss decimal pad by touching anywhere
+    func dismissKeyboard()
+    {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    
     
     
     //  connect options
