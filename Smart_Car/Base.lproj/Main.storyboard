@@ -74,7 +74,7 @@
                                             <segment title="Gallons"/>
                                         </segments>
                                         <connections>
-                                            <action selector="fuelOptions:" destination="BYZ-38-t0r" eventType="valueChanged" id="fbn-6i-wWp"/>
+                                            <action selector="didKindOfFuelChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="n4T-dD-VN4"/>
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2EQ-NK-JKd" userLabel="Kilometers, Miles">
@@ -84,7 +84,7 @@
                                             <segment title="Miles"/>
                                         </segments>
                                         <connections>
-                                            <action selector="distanceOptions:" destination="BYZ-38-t0r" eventType="valueChanged" id="FI9-af-gjb"/>
+                                            <action selector="didKindOfDistanceChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bjl-b0-vVK"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
@@ -110,8 +110,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="distanceTextField" destination="dKf-hb-wQv" id="O3f-yh-n9I"/>
-                        <outlet property="fuelConsumptionTextField" destination="GNC-fK-Ijo" id="7cn-uS-Fvw"/>
+                        <outlet property="distanceTextField" destination="dKf-hb-wQv" id="dc2-2w-eAd"/>
+                        <outlet property="fuelConsumptionTextField" destination="GNC-fK-Ijo" id="8xX-bv-fg6"/>
                         <outlet property="labelDistance" destination="qpM-fo-L1n" id="v5D-qC-vAM"/>
                         <outlet property="labelFuelConsumption" destination="Inm-xT-jVq" id="UjD-Yj-Zp8"/>
                         <outlet property="labelResult" destination="GWM-9j-Z8c" id="RH8-Cr-sVQ"/>
