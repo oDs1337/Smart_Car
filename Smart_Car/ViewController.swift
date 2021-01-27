@@ -7,7 +7,13 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
+    
+    //  init important variables
+    var kindOfFuel:String = ""
+    var kindOfDistance:String = ""
     
     //  connect labels
     //  fuel constumption
@@ -33,16 +39,72 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        defaultConfig()
+        
+        
+        
     }
+    //  default config
+    func defaultConfig()
+    {
+        //  dismiss keyboard
+        dismissKeyboard()
+        
+        //  default values of fuel and distance
+        kindOfFuel = "Liters"
+        kindOfDistance = "Kilometers"
+        
+        //  default placeholders
+        fuelConsumptionTextField.placeholder = kindOfFuel
+        distanceTextField.placeholder = kindOfDistance
+    }
+    
+    //  dismiss decimal pad by touching anywhere
+    func dismissKeyboard()
+    {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    
     
     
     //  connect options
     //  fuel options
-    @IBAction func fuelOptions(_ sender: Any) {
+    @IBAction func didKindOfFuelChanged(_ sender: UISegmentedControl)
+    {
+        if sender.selectedSegmentIndex == 0
+        {
+            kindOfFuel = "Liters"
+            //  change placeholder of fuel consumption
+            fuelConsumptionTextField.placeholder = kindOfFuel
+        }
+        else if sender.selectedSegmentIndex == 1
+        {
+            kindOfFuel = "Gallons"
+            //  change placeholder of fuel consumption
+            fuelConsumptionTextField.placeholder = kindOfFuel
+        }
     }
     
+    
     //  distance options
-    @IBAction func distanceOptions(_ sender: Any) {
+    @IBAction func didKindOfDistanceChanged(_ sender: UISegmentedControl)
+    {
+        if sender.selectedSegmentIndex == 0
+        {
+            kindOfDistance = "Kilometers"
+            //  change placeholder of distance
+            distanceTextField.placeholder = kindOfDistance
+        }
+        else if sender.selectedSegmentIndex == 1
+        {
+            kindOfDistance = "Miles"
+            //  change placeholder of distance
+            distanceTextField.placeholder = kindOfDistance
+        }
     }
     
     //  connect buttons
