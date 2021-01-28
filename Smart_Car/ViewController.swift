@@ -79,6 +79,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         kindOfFuel = "Liters"
         kindOfDistance = "Kilometers"
         
+        //  default value of result label
+        labelResult.text = ""
+        
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
         distanceTextField.placeholder = kindOfDistance
@@ -168,8 +171,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             fuelConsumption = fuelConsumptionTextField.text!
             distance = distanceTextField.text!
             
-            var finalResult:Double = math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)
-            labelResult.text = "\(finalResult)/100km"
+            let finalResult:Double = math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)
+            labelResult.text = "\(finalResult) \(kindOfFuel)/100 \(kindOfDistance)"
         }
         
         
