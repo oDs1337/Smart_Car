@@ -7,13 +7,17 @@
 
 import UIKit
 
+//  extensions
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //  init important variables
     var kindOfFuel:String = ""
     var kindOfDistance:String = ""
+    
+    //  init classes
+    var math = MathOperations()
     
     //  connect labels
     //  fuel constumption
@@ -40,20 +44,43 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //  delegate to allow only numbers
+        fuelConsumptionTextField.delegate = self
+        distanceTextField.delegate = self
+        
+        //  init default config
         defaultConfig()
         
         
         
     }
+    
+    //  Allow to fetch only numbers
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
+        let withDecimal = (
+            string == NumberFormatter().decimalSeparator &&
+            textField.text?.contains(string) == false
+        )
+        return isNumber || withDecimal
+    }
+    
+    
     //  default config
     func defaultConfig()
     {
+       
+        
         //  dismiss keyboard
         dismissKeyboard()
         
         //  default values of fuel and distance
         kindOfFuel = "Liters"
         kindOfDistance = "Kilometers"
+        
+        //  default value of result label
+        labelResult.text = ""
         
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
@@ -68,8 +95,30 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    
-    
+    //  check if string is empty
+    /*
+        result: true = is empty
+        result: false = is not empty
+     */
+    func isEmptyCheck(data: String) -> Bool
+    {
+        var result:Bool = true
+        
+        if data.isEmpty
+        {
+            result = true
+        }
+        else if data.isEmpty != true
+        {
+            result = false
+        }
+        else
+        {
+            result = true
+        }
+        
+        return result
+    }
     
     //  connect options
     //  fuel options
@@ -108,7 +157,25 @@ class ViewController: UIViewController {
     }
     
     //  connect buttons
-    @IBAction func submitButton(_ sender: Any) {
+    @IBAction func submitButton(_ sender: Any)
+    {
+        var fuelConsumption:String = ""
+        var distance:String = ""
+        
+        if isEmptyCheck(data: fuelConsumptionTextField.text!) == true || isEmptyCheck(data: distanceTextField.text!) == true
+        {
+            labelResult.text = "input data"
+        }
+        else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
+        {
+            fuelConsumption = fuelConsumptionTextField.text!
+            distance = distanceTextField.text!
+            
+            let finalResult:Double = math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)
+            labelResult.text = "\(finalResult) \(kindOfFuel)/100 \(kindOfDistance)"
+        }
+        
+        
     }
     
     
