@@ -103,6 +103,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return result
     }
     
+    
     //  check if string is empty
     /*
         result: true = is empty
@@ -172,6 +173,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var distance:String = ""
         
         
+        
         if isEmptyCheck(data: fuelConsumptionTextField.text!) == true || isEmptyCheck(data: distanceTextField.text!) == true
         {
             labelResult.text = "input data"
@@ -180,9 +182,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             fuelConsumption = commaToDot(data: fuelConsumptionTextField.text!)
             distance = commaToDot(data: distanceTextField.text!)
+
             
-            let finalResult:Double = math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)
-            labelResult.text = "\(finalResult) \(kindOfFuel)/100 \(kindOfDistance)"
+            let finalResultAsString = NSString(string: String(format: "%.3f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
+            
+            labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
         }
         
         
