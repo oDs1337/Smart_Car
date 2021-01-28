@@ -95,6 +95,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
     }
     
+    //  switch comma with dot to make calc easier
+    func commaToDot(data: String) -> String
+    {
+        let result:String = data.replacingOccurrences(of: ",", with: ".")
+        
+        return result
+    }
+    
     //  check if string is empty
     /*
         result: true = is empty
@@ -159,8 +167,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  connect buttons
     @IBAction func submitButton(_ sender: Any)
     {
+        //  init important variables
         var fuelConsumption:String = ""
         var distance:String = ""
+        
         
         if isEmptyCheck(data: fuelConsumptionTextField.text!) == true || isEmptyCheck(data: distanceTextField.text!) == true
         {
@@ -168,8 +178,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
         {
-            fuelConsumption = fuelConsumptionTextField.text!
-            distance = distanceTextField.text!
+            fuelConsumption = commaToDot(data: fuelConsumptionTextField.text!)
+            distance = commaToDot(data: distanceTextField.text!)
             
             let finalResult:Double = math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)
             labelResult.text = "\(finalResult) \(kindOfFuel)/100 \(kindOfDistance)"
