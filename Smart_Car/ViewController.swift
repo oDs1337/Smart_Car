@@ -16,6 +16,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var kindOfFuel:String = ""
     var kindOfDistance:String = ""
     
+    //  init classes
+    var math = MathOperations()
+    
     //  connect labels
     //  fuel constumption
     @IBOutlet weak var labelFuelConsumption: UILabel!
@@ -153,6 +156,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  connect buttons
     @IBAction func submitButton(_ sender: Any)
     {
+        var fuelConsumption:String = ""
+        var distance:String = ""
+        
+        if isEmptyCheck(data: fuelConsumptionTextField.text!) == true || isEmptyCheck(data: distanceTextField.text!) == true
+        {
+            labelResult.text = "input data"
+        }
+        else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
+        {
+            fuelConsumption = fuelConsumptionTextField.text!
+            distance = distanceTextField.text!
+            
+            var finalResult:Double = math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)
+            labelResult.text = "\(finalResult)/100km"
+        }
+        
         
     }
     
