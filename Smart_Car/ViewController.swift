@@ -248,7 +248,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             distance = commaToDot(data: distanceTextField.text!)
 
             
-            let finalResultAsString = NSString(string: String(format: "%.3f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
+            let finalResultAsString = NSString(string: String(format: "%.2f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
             
             labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
         }
