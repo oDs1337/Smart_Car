@@ -43,6 +43,7 @@ extension UISegmentedControl
 }
 
 
+
 class ViewController: UIViewController, UITextFieldDelegate {
     
     //  init important variables
@@ -251,6 +252,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let finalResultAsString = NSString(string: String(format: "%.2f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
             
             labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
+            
+            let alert = UIAlertController(title: "Your fuel usage is:", message: "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)", preferredStyle: .alert)
+            
+            alert.view.tintColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
+            
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            
+
+            self.present(alert, animated: true)
         }
         
         
