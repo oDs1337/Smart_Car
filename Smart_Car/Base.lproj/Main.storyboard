@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +24,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel consumption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inm-xT-jVq" userLabel="LabelFuelConsumption">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fuel consumption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNC-fK-Ijo" userLabel="TextFieldFuelConsumption">
@@ -36,7 +35,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpM-fo-L1n" userLabel="LabelDistance">
                                         <rect key="frame" x="0.0" y="102.33333333333331" width="170" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKf-hb-wQv" userLabel="TextFieldDistance">
@@ -73,6 +72,7 @@
                                             <segment title="Liters"/>
                                             <segment title="Gallons"/>
                                         </segments>
+                                        <color key="selectedSegmentTintColor" red="0.60161286589999996" green="0.84313267469999997" blue="0.1667303443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="didKindOfFuelChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="n4T-dD-VN4"/>
                                         </connections>
@@ -83,6 +83,8 @@
                                             <segment title="Kilometres"/>
                                             <segment title="Miles"/>
                                         </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedSegmentTintColor" red="0.60161286589999996" green="0.84313267469999997" blue="0.1667303443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="didKindOfDistanceChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bjl-b0-vVK"/>
                                         </connections>
@@ -91,7 +93,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2EQ-NK-JKd" firstAttribute="centerY" secondItem="dKf-hb-wQv" secondAttribute="centerY" id="28b-VM-qTg"/>
                             <constraint firstItem="Zb0-ex-KWl" firstAttribute="top" secondItem="GNC-fK-Ijo" secondAttribute="top" id="9BL-ni-VLh"/>
@@ -110,8 +112,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distanceOptions" destination="2EQ-NK-JKd" id="2nd-KO-g89"/>
                         <outlet property="distanceTextField" destination="dKf-hb-wQv" id="dc2-2w-eAd"/>
                         <outlet property="fuelConsumptionTextField" destination="GNC-fK-Ijo" id="8xX-bv-fg6"/>
+                        <outlet property="fuelOptions" destination="xmI-qr-911" id="Zzs-wn-NXR"/>
                         <outlet property="labelDistance" destination="qpM-fo-L1n" id="v5D-qC-vAM"/>
                         <outlet property="labelFuelConsumption" destination="Inm-xT-jVq" id="UjD-Yj-Zp8"/>
                         <outlet property="labelResult" destination="GWM-9j-Z8c" id="RH8-Cr-sVQ"/>
@@ -124,8 +128,5 @@
     </scenes>
     <resources>
         <image name="logo" width="122" height="67"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

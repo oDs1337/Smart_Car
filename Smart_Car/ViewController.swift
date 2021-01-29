@@ -8,6 +8,39 @@
 import UIKit
 
 //  extensions
+//  placeholder colors
+extension UITextField{
+   @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
+        }
+    }
+}
+
+//  segmented control text color
+extension UISegmentedControl
+{
+    func defaultConfiguration(font: UIFont = UIFont.systemFont(ofSize: 12), color: UIColor = UIColor.white)
+    {
+        let defaultAttributes = [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: color
+        ]
+        setTitleTextAttributes(defaultAttributes, for: .normal)
+    }
+
+    func selectedConfiguration(font: UIFont = UIFont.boldSystemFont(ofSize: 12), color: UIColor = UIColor.white)
+    {
+        let selectedAttributes = [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: color
+        ]
+        setTitleTextAttributes(selectedAttributes, for: .selected)
+    }
+}
 
 
 class ViewController: UIViewController, UITextFieldDelegate {
@@ -36,6 +69,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  distance text field
     @IBOutlet weak var distanceTextField: UITextField!
+    
+    //  connect options
+    //  fuel
+    @IBOutlet weak var fuelOptions: UISegmentedControl!
+    
+    //  distance
+    @IBOutlet weak var distanceOptions: UISegmentedControl!
+    
+    
+    
+    
     
     
     
@@ -71,6 +115,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func defaultConfig()
     {
        
+        //  color managment
+        //  fuel consumption
+        fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
+        fuelConsumptionTextField.placeHolderColor = .white
+        fuelOptions.defaultConfiguration()
+        fuelOptions.selectedConfiguration()
+        fuelConsumptionTextField.textColor = .black
+        
+        //  distance
+        distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+        distanceTextField.placeHolderColor = .white
+        distanceOptions.defaultConfiguration()
+        distanceOptions.selectedConfiguration()
+        distanceTextField.textColor = .black
+        
+        
+        //  segmented control
+        
+        
+        
         
         //  dismiss keyboard
         dismissKeyboard()
