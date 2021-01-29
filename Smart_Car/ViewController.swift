@@ -155,7 +155,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func eraseDataInTextFields()
     {
         fuelConsumptionTextField.text = ""
+        fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
         distanceTextField.text = ""
+        distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
     }
     
     //  dismiss decimal pad by touching anywhere
@@ -242,12 +244,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  init important variables
         var fuelConsumption:String = ""
         var distance:String = ""
+        var whichOptionIsEmpty = "Fuel consumption and Distance"
+        let alertMissingDataTitle = "Enter the following data"
         
         
         
-        if isEmptyCheck(data: fuelConsumptionTextField.text!) == true || isEmptyCheck(data: distanceTextField.text!) == true
+        if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == true
         {
-            labelResult.text = "input data"
+            //  set background color to red so user will know which text fields are missed
+            fuelConsumptionTextField.backgroundColor = .red
+            distanceTextField.backgroundColor = .red
+            
+            whichOptionIsEmpty = "Fuel consumption and Distance"
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+        }
+        else if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == false
+        {
+            //  set background color to red
+            fuelConsumptionTextField.backgroundColor = .red
+            //  set background color to green
+            distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+            
+            whichOptionIsEmpty = "Fuel consumption"
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == true
+        {
+            //  set background color to red
+            distanceTextField.backgroundColor = .red
+            //  set background color to gree
+            fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+            
+            whichOptionIsEmpty = "Distance"
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
         else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
         {
