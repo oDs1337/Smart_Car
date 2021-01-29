@@ -20,6 +20,8 @@ class MathOperations
         //  (fuel consumption / distance) * 100
         result = (NSString(string: fuelConsumption).doubleValue / NSString(string: distance).doubleValue) * 100
         
+        
+        
         return result
     }
 }
