@@ -168,9 +168,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  default values of fuel and distance
         kindOfFuel = "Liters"
         kindOfDistance = "Kilometers"
-        
-        //  default value of result label
-        labelResult.text = ""
+
         
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
@@ -325,7 +323,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
             
             //  alert with result of fuel usage
-            let alert = UIAlertController(title: "Your fuel usage is:", message: "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Your fuel consumption is:", message: "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)", preferredStyle: .alert)
                         
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
             self.present(alert, animated: true)

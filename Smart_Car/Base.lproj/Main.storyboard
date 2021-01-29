@@ -46,17 +46,14 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-Ah-EmE" userLabel="Stack View result">
-                                <rect key="frame" x="50" y="770" width="290" height="30"/>
+                                <rect key="frame" x="50" y="767" width="290" height="33"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10L / 100km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWM-9j-Z8c" userLabel="LabelResult">
-                                        <rect key="frame" x="0.0" y="5" width="91.666666666666671" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45i-Oa-NET" userLabel="ButtonSubmit">
-                                        <rect key="frame" x="241" y="0.0" width="49" height="30"/>
-                                        <state key="normal" title="Submit"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Calculate">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0P2-sE-dMA"/>
                                         </connections>
@@ -118,7 +115,6 @@
                         <outlet property="fuelOptions" destination="xmI-qr-911" id="Zzs-wn-NXR"/>
                         <outlet property="labelDistance" destination="qpM-fo-L1n" id="v5D-qC-vAM"/>
                         <outlet property="labelFuelConsumption" destination="Inm-xT-jVq" id="UjD-Yj-Zp8"/>
-                        <outlet property="labelResult" destination="GWM-9j-Z8c" id="RH8-Cr-sVQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
