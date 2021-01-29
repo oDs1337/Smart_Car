@@ -42,6 +42,28 @@ extension UISegmentedControl
     }
 }
 
+//  decimal pad buttons
+extension UITextField{
+
+ func addDoneButtonToKeyboard(myAction:Selector?){
+    let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+    doneToolbar.barStyle = UIBarStyle.default
+
+    let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+    let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: myAction)
+
+    var items = [UIBarButtonItem]()
+    items.append(flexSpace)
+    items.append(done)
+
+    doneToolbar.items = items
+    doneToolbar.sizeToFit()
+
+    self.inputAccessoryView = doneToolbar
+ }
+}
+
+
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -88,9 +110,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
         //  delegate to allow only numbers
         fuelConsumptionTextField.delegate = self
         distanceTextField.delegate = self
+        
+        //  add buttons to decimal pads
+        fuelConsumptionTextField.addDoneButtonToKeyboard(myAction:  #selector(self.fuelConsumptionTextField.resignFirstResponder))
+        distanceTextField.addDoneButtonToKeyboard(myAction:  #selector(self.distanceTextField.resignFirstResponder))
         
         //  init default config
         defaultConfig()
@@ -131,8 +158,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.textColor = .black
         
         
-        //  segmented control
-        
+      
         
         
         
@@ -142,13 +168,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  default values of fuel and distance
         kindOfFuel = "Liters"
         kindOfDistance = "Kilometers"
-        
-        //  default value of result label
-        labelResult.text = ""
+
         
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
         distanceTextField.placeholder = kindOfDistance
+    }
+    
+    //  erase data in text fields
+    func eraseDataInTextFields()
+    {
+        fuelConsumptionTextField.text = ""
+        fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+        distanceTextField.text = ""
+        distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
     }
     
     //  dismiss decimal pad by touching anywhere
@@ -235,12 +268,49 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  init important variables
         var fuelConsumption:String = ""
         var distance:String = ""
+        var whichOptionIsEmpty = "Fuel consumption and Distance"
+        let alertMissingDataTitle = "Enter the following data"
         
         
         
-        if isEmptyCheck(data: fuelConsumptionTextField.text!) == true || isEmptyCheck(data: distanceTextField.text!) == true
+        if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == true
         {
-            labelResult.text = "input data"
+            //  set background color to red so user will know which text fields are missed
+            fuelConsumptionTextField.backgroundColor = .red
+            distanceTextField.backgroundColor = .red
+            
+            whichOptionIsEmpty = "Fuel consumption and Distance"
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+        }
+        else if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == false
+        {
+            //  set background color to red
+            fuelConsumptionTextField.backgroundColor = .red
+            //  set background color to green
+            distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+            
+            whichOptionIsEmpty = "Fuel consumption"
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == true
+        {
+            //  set background color to red
+            distanceTextField.backgroundColor = .red
+            //  set background color to gree
+            fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+            
+            whichOptionIsEmpty = "Distance"
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
         else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
         {
@@ -250,8 +320,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             let finalResultAsString = NSString(string: String(format: "%.2f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
             
-            labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
+            //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
+            
+            //  alert with result of fuel usage
+            let alert = UIAlertController(title: "Your fuel consumption is:", message: "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)", preferredStyle: .alert)
+                        
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            //  erase data to continue
+            eraseDataInTextFields()
+            
+            
         }
+        
+        
         
         
     }
