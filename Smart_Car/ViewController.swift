@@ -132,8 +132,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.textColor = .black
         
         
-        //  segmented control
-        
+      
         
         
         
@@ -150,6 +149,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
         distanceTextField.placeholder = kindOfDistance
+    }
+    
+    //  erase data in text fields
+    func eraseDataInTextFields()
+    {
+        fuelConsumptionTextField.text = ""
+        distanceTextField.text = ""
     }
     
     //  dismiss decimal pad by touching anywhere
@@ -251,17 +257,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             let finalResultAsString = NSString(string: String(format: "%.2f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
             
-            labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
+            //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
             
+            //  alert with result of fuel usage
             let alert = UIAlertController(title: "Your fuel usage is:", message: "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)", preferredStyle: .alert)
-            
-            alert.view.tintColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
-            
+                        
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
-            
-
             self.present(alert, animated: true)
+            
+            //  erase data to continue
+            eraseDataInTextFields()
+            
+            
         }
+        
+        
         
         
     }
