@@ -42,6 +42,27 @@ extension UISegmentedControl
     }
 }
 
+//  decimal pad buttons
+extension UITextField{
+
+ func addDoneButtonToKeyboard(myAction:Selector?){
+    let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+    doneToolbar.barStyle = UIBarStyle.default
+
+    let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+    let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: myAction)
+
+    var items = [UIBarButtonItem]()
+    items.append(flexSpace)
+    items.append(done)
+
+    doneToolbar.items = items
+    doneToolbar.sizeToFit()
+
+    self.inputAccessoryView = doneToolbar
+ }
+}
+
 
 
 class ViewController: UIViewController, UITextFieldDelegate {
@@ -89,9 +110,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
         //  delegate to allow only numbers
         fuelConsumptionTextField.delegate = self
         distanceTextField.delegate = self
+        
+        //  add buttons to decimal pads
+        fuelConsumptionTextField.addDoneButtonToKeyboard(myAction:  #selector(self.fuelConsumptionTextField.resignFirstResponder))
+        distanceTextField.addDoneButtonToKeyboard(myAction:  #selector(self.distanceTextField.resignFirstResponder))
         
         //  init default config
         defaultConfig()
@@ -257,6 +283,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             whichOptionIsEmpty = "Fuel consumption and Distance"
             let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
             self.present(alert, animated: true)
             
@@ -270,6 +297,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             whichOptionIsEmpty = "Fuel consumption"
             let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
@@ -282,6 +310,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             whichOptionIsEmpty = "Distance"
             let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
