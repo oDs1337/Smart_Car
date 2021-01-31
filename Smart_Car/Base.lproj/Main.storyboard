@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,7 +47,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-Ah-EmE" userLabel="Stack View result">
-                                <rect key="frame" x="50" y="767" width="290" height="33"/>
+                                <rect key="frame" x="50" y="712" width="290" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45i-Oa-NET" userLabel="ButtonSubmit">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="33"/>
@@ -88,20 +89,30 @@
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-bv-GUh" userLabel="Banner VIew" customClass="GADBannerView">
+                                <rect key="frame" x="35" y="760" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Xea-EW-he6"/>
+                                    <constraint firstAttribute="height" constant="50" id="cCg-Mo-a2d"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2EQ-NK-JKd" firstAttribute="centerY" secondItem="dKf-hb-wQv" secondAttribute="centerY" id="28b-VM-qTg"/>
+                            <constraint firstItem="cUa-bv-GUh" firstAttribute="top" secondItem="B8B-Ah-EmE" secondAttribute="bottom" constant="15" id="4WP-Vn-O7h"/>
                             <constraint firstItem="Zb0-ex-KWl" firstAttribute="top" secondItem="GNC-fK-Ijo" secondAttribute="top" id="9BL-ni-VLh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gus-f5-iog" secondAttribute="trailing" constant="170" id="F3d-AT-jKr"/>
                             <constraint firstItem="TLq-IJ-nLN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Hz1-8I-KRJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zb0-ex-KWl" secondAttribute="trailing" constant="5" id="IlW-oa-01q"/>
                             <constraint firstItem="B8B-Ah-EmE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="JgL-Rl-zh3"/>
                             <constraint firstItem="TLq-IJ-nLN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LdF-eC-Hgq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cUa-bv-GUh" secondAttribute="bottom" id="O33-qR-VZW"/>
                             <constraint firstItem="Zb0-ex-KWl" firstAttribute="bottom" secondItem="dKf-hb-wQv" secondAttribute="bottom" id="RQh-Jv-3kn"/>
                             <constraint firstItem="Gus-f5-iog" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RRG-67-7GT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B8B-Ah-EmE" secondAttribute="bottom" constant="10" id="Xme-eh-Goh"/>
+                            <constraint firstItem="cUa-bv-GUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X7o-lM-V8v"/>
                             <constraint firstItem="Zb0-ex-KWl" firstAttribute="leading" secondItem="Gus-f5-iog" secondAttribute="trailing" constant="5" id="YfX-iS-AUY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B8B-Ah-EmE" secondAttribute="trailing" constant="50" id="gBy-Qp-Epo"/>
                             <constraint firstItem="xmI-qr-911" firstAttribute="centerY" secondItem="GNC-fK-Ijo" secondAttribute="centerY" id="jaC-OM-QXQ"/>
@@ -109,6 +120,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="cUa-bv-GUh" id="Voe-9P-rgI"/>
                         <outlet property="distanceOptions" destination="2EQ-NK-JKd" id="2nd-KO-g89"/>
                         <outlet property="distanceTextField" destination="dKf-hb-wQv" id="dc2-2w-eAd"/>
                         <outlet property="fuelConsumptionTextField" destination="GNC-fK-Ijo" id="8xX-bv-fg6"/>
@@ -124,5 +136,8 @@
     </scenes>
     <resources>
         <image name="logo" width="122" height="67"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
