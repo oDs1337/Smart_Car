@@ -14,6 +14,8 @@ import GoogleMobileAds
 
 
 //  extensions
+
+
 //  gad banner delegate
 extension UIViewController: GADBannerViewDelegate{
     
@@ -90,6 +92,8 @@ extension UITextField{
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    
+    
     //  init important variables
     var kindOfFuel:String = ""
     var kindOfDistance:String = ""
@@ -125,6 +129,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  ad banner
     @IBOutlet weak var bannerView: GADBannerView!
     
+    //  lock orientation: portrait
+    private var _orientations = UIInterfaceOrientationMask.portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        get { return self._orientations }
+        set { self._orientations = newValue }
+    }
+    
     
     
     
@@ -135,9 +146,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         
+        
         //  delegate to allow only numbers
         fuelConsumptionTextField.delegate = self
         distanceTextField.delegate = self
+        
+        
         
         //  ad managment
         let appId = "ca-app-pub-2859570082554006/1576697552"
