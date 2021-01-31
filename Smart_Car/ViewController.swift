@@ -4,10 +4,33 @@
 //
 //  Created by Tobiasz Mamcarczyk on 25/01/2021.
 //
+//  APP ID: pub-2859570082554006 / google.com, pub-2859570082554006, DIRECT, f08c47fec0942fa0
+//  APP ID2?: ca-app-pub-2859570082554006~2642367215
+//  UNIT ID: ca-app-pub-2859570082554006/1576697552
+
 
 import UIKit
+import GoogleMobileAds
+
 
 //  extensions
+//  gad banner delegate
+extension UIViewController: GADBannerViewDelegate{
+    
+    //  if ad works
+    func adViewDidReciveAd(_ bannerView: GADBannerView)
+    {
+        print("ad received")
+    }
+    
+    //  fetch error if ad doesn't work
+    public func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError)
+    {
+        print(error)
+    }
+    
+}
+
 //  placeholder colors
 extension UITextField{
    @IBInspectable var placeHolderColor: UIColor? {
@@ -99,7 +122,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  distance
     @IBOutlet weak var distanceOptions: UISegmentedControl!
     
-    
+    //  ad banner
+    @IBOutlet weak var bannerView: GADBannerView!
     
     
     
@@ -114,6 +138,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  delegate to allow only numbers
         fuelConsumptionTextField.delegate = self
         distanceTextField.delegate = self
+        
+        //  ad managment
+        let appId = "ca-app-pub-2859570082554006/1576697552"
+        let testAppId = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = appId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
         
         //  add buttons to decimal pads
         fuelConsumptionTextField.addDoneButtonToKeyboard(myAction:  #selector(self.fuelConsumptionTextField.resignFirstResponder))
