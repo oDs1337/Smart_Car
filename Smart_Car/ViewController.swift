@@ -101,6 +101,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  init classes
     var math = MathOperations()
+    var languages = Languages()
     
     //  connect labels
     //  fuel constumption
