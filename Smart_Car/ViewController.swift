@@ -97,6 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  init important variables
     var kindOfFuel:String = ""
     var kindOfDistance:String = ""
+    var systemLanguage:String = ""
     
     //  init classes
     var math = MathOperations()
@@ -135,6 +136,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         get { return self._orientations }
         set { self._orientations = newValue }
     }
+    
     
     
     
@@ -204,7 +206,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.textColor = .black
         
         
-      
+        //  fetch device language
+        systemLanguage = fetchLanguage()
         
         
         
@@ -219,6 +222,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
         distanceTextField.placeholder = kindOfDistance
+    }
+    
+    //  fetch device's language
+    func fetchLanguage() -> String
+    {
+        //  fetch language settings
+        let fetchDeviceLanguage:String = Locale.preferredLanguages[0]
+        let index = fetchDeviceLanguage.index(fetchDeviceLanguage.startIndex, offsetBy: 2)
+        let languageSettings = String(fetchDeviceLanguage.prefix(upTo: index))
+        
+        return languageSettings
     }
     
     //  erase data in text fields
