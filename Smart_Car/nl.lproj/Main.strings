@@ -1,0 +1,27 @@
+
+/* Class = "UISegmentedControl"; 2EQ-NK-JKd.segmentTitles[0] = "Kilometres"; ObjectID = "2EQ-NK-JKd"; */
+"2EQ-NK-JKd.segmentTitles[0]" = "Kilometres";
+
+/* Class = "UISegmentedControl"; 2EQ-NK-JKd.segmentTitles[1] = "Miles"; ObjectID = "2EQ-NK-JKd"; */
+"2EQ-NK-JKd.segmentTitles[1]" = "Miles";
+
+/* Class = "UIButton"; normalTitle = "Calculate"; ObjectID = "45i-Oa-NET"; */
+"45i-Oa-NET.normalTitle" = "Calculate";
+
+/* Class = "UITextField"; placeholder = "Fuel consumption"; ObjectID = "GNC-fK-Ijo"; */
+"GNC-fK-Ijo.placeholder" = "Fuel consumption";
+
+/* Class = "UILabel"; text = "Fuel consumption"; ObjectID = "Inm-xT-jVq"; */
+"Inm-xT-jVq.text" = "Fuel consumption";
+
+/* Class = "UITextField"; placeholder = "Distance"; ObjectID = "dKf-hb-wQv"; */
+"dKf-hb-wQv.placeholder" = "Distance";
+
+/* Class = "UILabel"; text = "Distance"; ObjectID = "qpM-fo-L1n"; */
+"qpM-fo-L1n.text" = "Distance";
+
+/* Class = "UISegmentedControl"; xmI-qr-911.segmentTitles[0] = "Liters"; ObjectID = "xmI-qr-911"; */
+"xmI-qr-911.segmentTitles[0]" = "Liters";
+
+/* Class = "UISegmentedControl"; xmI-qr-911.segmentTitles[1] = "Gallons"; ObjectID = "xmI-qr-911"; */
+"xmI-qr-911.segmentTitles[1]" = "Gallons";

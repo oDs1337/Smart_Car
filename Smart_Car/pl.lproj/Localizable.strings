@@ -14,14 +14,24 @@
 
 "msgLiters" = "Litry";
 
+"msgLitersResult" = "Litrów";
+
 "msgKilometers" = "Kilometry";
+
+"msgKilometersResult" = "Kilometrów";
 
 "msgGallons" = "Galony";
 
+"msgGallonsResult" = "Galonów";
+
 "msgMiles" = "Mile";
+
+"msgMilesResult" = "Mil";
 
 "msgFuelConsumptionAndDistance" = "Zużyte paliwo oraz Przebyty dystans";
 
 "msgEnterTheFollowingData" = "Wprowadz następujące dane";
 
 "msgYourFuelConsumptionIs" = "Twoje spalanie wynosi:";
+
+"buttonCalculate" = "Oblicz";

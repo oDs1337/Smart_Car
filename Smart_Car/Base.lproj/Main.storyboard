@@ -121,6 +121,7 @@
                     </view>
                     <connections>
                         <outlet property="bannerView" destination="cUa-bv-GUh" id="Voe-9P-rgI"/>
+                        <outlet property="buttonCalculate" destination="45i-Oa-NET" id="dLj-LM-pGd"/>
                         <outlet property="distanceOptions" destination="2EQ-NK-JKd" id="2nd-KO-g89"/>
                         <outlet property="distanceTextField" destination="dKf-hb-wQv" id="dc2-2w-eAd"/>
                         <outlet property="fuelConsumptionTextField" destination="GNC-fK-Ijo" id="8xX-bv-fg6"/>
