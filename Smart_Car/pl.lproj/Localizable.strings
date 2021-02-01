@@ -5,3 +5,23 @@
   Created by Tobiasz Mamcarczyk on 01/02/2021.
   
 */
+
+"msgFuelConsumption" = "Zużyte paliwo";
+
+"msgDistance" = "Przebyty dystans";
+
+"msgContinue" = "Kontynuuj";
+
+"msgLiters" = "Litry";
+
+"msgKilometers" = "Kilometry";
+
+"msgGallons" = "Galony";
+
+"msgMiles" = "Mile";
+
+"msgFuelConsumptionAndDistance" = "Zużyte paliwo oraz Przebyty dystans";
+
+"msgEnterTheFollowingData" = "Wprowadz następujące dane";
+
+"msgYourFuelConsumptionIs" = "Twoje spalanie wynosi:";
