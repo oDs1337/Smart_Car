@@ -64,6 +64,9 @@
 		266DB65B25C8646600CBD1A3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		266DB65C25C8646700CBD1A3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		266DB65D25C8646700CBD1A3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		266DB66D25C8815E00CBD1A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		266DB66E25C8815E00CBD1A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		266DB66F25C8815E00CBD1A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26817BCC25C2337400B27434 /* MathOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperations.swift; sourceTree = "<group>"; };
 		26E6EDA625BF394E001B97E5 /* Smart_Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smart_Car.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E6EDA925BF394E001B97E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 				ru,
 				fr,
 				nl,
+				de,
 			);
 			mainGroup = 26E6ED9D25BF394E001B97E5;
 			productRefGroup = 26E6EDA725BF394E001B97E5 /* Products */;
@@ -497,6 +501,7 @@
 				266DB65625C85BE900CBD1A3 /* pl */,
 				266DB65725C85BEA00CBD1A3 /* sv */,
 				266DB65D25C8646700CBD1A3 /* nl */,
+				266DB66F25C8815E00CBD1A3 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				266DB64425C85B9200CBD1A3 /* ru */,
 				266DB64625C85B9D00CBD1A3 /* fr */,
 				266DB65B25C8646600CBD1A3 /* nl */,
+				266DB66D25C8815E00CBD1A3 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -523,6 +529,7 @@
 				266DB64525C85B9300CBD1A3 /* ru */,
 				266DB64725C85B9D00CBD1A3 /* fr */,
 				266DB65C25C8646700CBD1A3 /* nl */,
+				266DB66E25C8815E00CBD1A3 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

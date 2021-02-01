@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Smart_Car
+
+  Created by Tobiasz Mamcarczyk on 01/02/2021.
+  
+*/
+
+"msgFuelConsumption" = "Treibstoffverbrauch";
+
+"msgDistance" = "Entfernung";
+
+"msgContinue" = "Fortsetzen";
+
+"msgLiters" = "Liter";
+
+"msgLitersResult" = "Liter";
+
+"msgKilometers" = "Kilometer";
+
+"msgKilometersResult" = "Kilometer";
+
+"msgGallons" = "Gallonen";
+
+"msgGallonsResult" = "Gallonen";
+
+"msgMiles" = "Meilen";
+
+"msgMilesResult" = "Meilen";
+
+"msgFuelConsumptionAndDistance" = "Treibstoffverbrauch und Entfernung";
+
+"msgEnterTheFollowingData" = "Geben Sie die folgenden Daten ein";
+
+"msgYourFuelConsumptionIs" = "Ihr treibstoffverbrauch ist:";
+
+"buttonCalculate" = "Berechnen";
+
+
+

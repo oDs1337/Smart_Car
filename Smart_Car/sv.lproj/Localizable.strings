@@ -5,3 +5,33 @@
   Created by Tobiasz Mamcarczyk on 01/02/2021.
   
 */
+
+"msgFuelConsumption" = "Bränsleförbrukning";
+ 
+"msgDistance" = "Distans";
+ 
+"msgContinue" = "Fortsätta";
+ 
+"msgLiters" = "Liter";
+ 
+"msgLitersResult" = "Liter";
+ 
+"msgKilometers" = "Kilometer";
+ 
+"msgKilometersResult" = "Kilometer";
+ 
+"msgGallons" = "Gallon";
+ 
+"msgGallonsResult" = "Gallon";
+ 
+"msgMiles" = "Miles";
+ 
+"msgMilesResult" = "Miles";
+ 
+"msgFuelConsumptionAndDistance" = "Bränsleförbrukning och Distans";
+ 
+"msgEnterTheFollowingData" = "Ange följande data";
+ 
+"msgYourFuelConsumptionIs" = "Din bränsleförbrukning är:";
+ 
+"buttonCalculate" = "Beräkna";
