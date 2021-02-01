@@ -6,32 +6,32 @@
   
 */
 
-"msgFuelConsumption" = "Zużyte paliwo";
+"msgFuelConsumption" = "Расход топлива";
 
-"msgDistance" = "Przebyty dystans";
+"msgDistance" = "Пройденное расстояние";
 
-"msgContinue" = "Kontynuuj";
+"msgContinue" = "Далее";
 
-"msgLiters" = "Litry";
+"msgLiters" = "Литры";
 
-"msgLitersResult" = "Litrów";
+"msgLitersResult" = "Литров";
 
-"msgKilometers" = "Kilometry";
+"msgKilometers" = "Километры";
 
-"msgKilometersResult" = "Kilometrów";
+"msgKilometersResult" = "Километров";
 
-"msgGallons" = "Galony";
+"msgGallons" = "Галлон";
 
-"msgGallonsResult" = "Galonów";
+"msgGallonsResult" = "Галлонов";
 
-"msgMiles" = "Mile";
+"msgMiles" = "Мили";
 
-"msgMilesResult" = "Mil";
+"msgMilesResult" = "Миля";
 
-"msgFuelConsumptionAndDistance" = "Zużyte paliwo oraz Przebyty dystans";
+"msgFuelConsumptionAndDistance" = "Расход топлива и пройденное расстояние";
 
-"msgEnterTheFollowingData" = "Wprowadz następujące dane";
+"msgEnterTheFollowingData" = "Впиши следующие данные";
 
-"msgYourFuelConsumptionIs" = "Twoje spalanie wynosi:";
+"msgYourFuelConsumptionIs" = "Ваш расход выносит:";
 
-"buttonCalculate" = "Oblicz";
+"buttonCalculate" = "Рассчитать";
