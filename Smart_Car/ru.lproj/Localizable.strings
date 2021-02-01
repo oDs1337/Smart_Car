@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Smart_Car
+
+  Created by Tobiasz Mamcarczyk on 01/02/2021.
+  
+*/
+
+"msgFuelConsumption" = "Расход толива";
+
+"msgDistance" = "Расстояние";
+
+"msgContinue" = "Далее";
+
+"msgLiters" = "Литры";
+
+"msgLitersResult" = "Литров";
+
+"msgKilometers" = "Километры";
+
+"msgKilometersResult" = "Километров";
+
+"msgGallons" = "Галлоны";
+
+"msgGallonsResult" = "Галлонов";
+
+"msgMiles" = "Мили";
+
+"msgMilesResult" = "Миль";
+
+"msgFuelConsumptionAndDistance" = "Расход топлива и расстояние";
+
+"msgEnterTheFollowingData" = "Впиши следующие данные";
+
+"msgYourFuelConsumptionIs" = "Ваш расход:";
+
+"buttonCalculate" = "Рассчитай";

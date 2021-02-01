@@ -15,6 +15,12 @@ import GoogleMobileAds
 
 //  extensions
 
+//  localization
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+}
 
 //  gad banner delegate
 extension UIViewController: GADBannerViewDelegate{
@@ -96,7 +102,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  init important variables
     var kindOfFuel:String = ""
+    var kindOfFuelResult:String = ""
     var kindOfDistance:String = ""
+    var kindOfDistanceResult:String = ""
+    var systemLanguage:String = ""
     
     //  init classes
     var math = MathOperations()
@@ -104,6 +113,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  connect labels
     //  fuel constumption
     @IBOutlet weak var labelFuelConsumption: UILabel!
+    
+    //  submit button
+    @IBOutlet weak var buttonCalculate: UIButton!
+    
     
     //  distance
     @IBOutlet weak var labelDistance: UILabel!
@@ -140,6 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,7 +169,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //  ad managment
         let appId = "ca-app-pub-2859570082554006/1576697552"
-        let testAppId = "ca-app-pub-3940256099942544/2934735716"
+        // let testAppId = "ca-app-pub-3940256099942544/2934735716"
         bannerView.adUnitID = appId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
@@ -204,21 +218,47 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.textColor = .black
         
         
-      
+        //  fetch device language
+        systemLanguage = fetchLanguage()
         
+        //  segmented control text
+        fuelOptions.setTitle("msgLiters".localized, forSegmentAt: 0)
+        fuelOptions.setTitle("msgGallons".localized, forSegmentAt: 1)
         
+        distanceOptions.setTitle("msgKilometers".localized, forSegmentAt: 0)
+        distanceOptions.setTitle("msgMiles".localized, forSegmentAt: 1)
         
         //  dismiss keyboard
         dismissKeyboard()
         
         //  default values of fuel and distance
-        kindOfFuel = "Liters"
-        kindOfDistance = "Kilometers"
+        kindOfFuel = "msgLiters".localized
+        kindOfFuelResult = "msgLitersResult".localized
+        kindOfDistance = "msgKilometers".localized
+        kindOfDistanceResult = "msgKilometersResult".localized
+        
+        //  default values of fuel consumption and distance labels
+        labelFuelConsumption.text = "msgFuelConsumption".localized
+        labelDistance.text = "msgDistance".localized
+        
+        //  default value of calculate button
+        buttonCalculate.setTitle("buttonCalculate".localized, for: .normal)
 
         
         //  default placeholders
         fuelConsumptionTextField.placeholder = kindOfFuel
         distanceTextField.placeholder = kindOfDistance
+    }
+    
+    //  fetch device's language
+    func fetchLanguage() -> String
+    {
+        //  fetch language settings
+        let fetchDeviceLanguage:String = Locale.preferredLanguages[0]
+        let index = fetchDeviceLanguage.index(fetchDeviceLanguage.startIndex, offsetBy: 2)
+        let languageSettings = String(fetchDeviceLanguage.prefix(upTo: index))
+        
+        return languageSettings
     }
     
     //  erase data in text fields
@@ -278,13 +318,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     {
         if sender.selectedSegmentIndex == 0
         {
-            kindOfFuel = "Liters"
+            kindOfFuel = "msgLiters".localized
+            kindOfFuelResult = "msgLitersResult".localized
             //  change placeholder of fuel consumption
             fuelConsumptionTextField.placeholder = kindOfFuel
         }
         else if sender.selectedSegmentIndex == 1
         {
-            kindOfFuel = "Gallons"
+            kindOfFuel = "msgGallons".localized
+            kindOfFuelResult = "msgGallonsResult".localized
             //  change placeholder of fuel consumption
             fuelConsumptionTextField.placeholder = kindOfFuel
         }
@@ -296,13 +338,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     {
         if sender.selectedSegmentIndex == 0
         {
-            kindOfDistance = "Kilometers"
+            kindOfDistance = "msgKilometers".localized
+            kindOfDistanceResult = "msgKilometersResult".localized
             //  change placeholder of distance
             distanceTextField.placeholder = kindOfDistance
         }
         else if sender.selectedSegmentIndex == 1
         {
-            kindOfDistance = "Miles"
+            kindOfDistance = "msgMiles".localized
+            kindOfDistanceResult = "msgMilesResult".localized
             //  change placeholder of distance
             distanceTextField.placeholder = kindOfDistance
         }
@@ -314,9 +358,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //  init important variables
         var fuelConsumption:String = ""
         var distance:String = ""
-        var whichOptionIsEmpty = "Fuel consumption and Distance"
-        let alertMissingDataTitle = "Enter the following data"
-        
+        var whichOptionIsEmpty = ""
+        let alertMissingDataTitle = "msgEnterTheFollowingData".localized
+        let messageContinue = "msgContinue".localized
         
         
         if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == true
@@ -325,10 +369,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             fuelConsumptionTextField.backgroundColor = .red
             distanceTextField.backgroundColor = .red
             
-            whichOptionIsEmpty = "Fuel consumption and Distance"
+            whichOptionIsEmpty = "msgFuelConsumptionAndDistance".localized
             let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
             alert.view.tintColor = UIColor.systemRed
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
             self.present(alert, animated: true)
             
         }
@@ -339,10 +383,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //  set background color to green
             distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
             
-            whichOptionIsEmpty = "Fuel consumption"
+            whichOptionIsEmpty = "msgFuelConsumption".localized
             let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
             alert.view.tintColor = UIColor.systemRed
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
             self.present(alert, animated: true)
         }
         else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == true
@@ -352,10 +396,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //  set background color to gree
             fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
             
-            whichOptionIsEmpty = "Distance"
+            whichOptionIsEmpty = "msgDistance".localized
             let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
             alert.view.tintColor = UIColor.systemRed
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
             self.present(alert, animated: true)
         }
         else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
@@ -369,9 +413,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
             
             //  alert with result of fuel usage
-            let alert = UIAlertController(title: "Your fuel consumption is:", message: "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult)", preferredStyle: .alert)
                         
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
             self.present(alert, animated: true)
             
             //  erase data to continue

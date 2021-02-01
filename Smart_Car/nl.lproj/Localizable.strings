@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Smart_Car
+
+  Created by Tobiasz Mamcarczyk on 01/02/2021.
+  
+*/
+
+"msgFuelConsumption" = "Brandstof consumptie";
+
+"msgDistance" = "Afstand";
+
+"msgContinue" = "Doorgaan";
+
+"msgLiters" = "Liters";
+
+"msgLitersResult" = "Liters";
+
+"msgKilometers" = "Kilometers";
+
+"msgKilometersResult" = "Kilometers";
+
+"msgGallons" = "Gallons";
+
+"msgGallonsResult" = "Gallons";
+
+"msgMiles" = "Mijl";
+
+"msgMilesResult" = "Mijl";
+
+"msgFuelConsumptionAndDistance" = "Brandstof consumptie and Afstand";
+
+"msgEnterTheFollowingData" = "Kom de volgende datum";
+
+"msgYourFuelConsumptionIs" = "Je brandstof consumptie is:";
+
+"buttonCalculate" = "Berekenen";
+
+
+
