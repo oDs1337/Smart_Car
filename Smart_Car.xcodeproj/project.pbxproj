@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		260CFE1325C7676D004B1B03 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260CFE1225C7676D004B1B03 /* Languages.swift */; };
 		2617A86825C09AD1008DD63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2617A86725C09AD1008DD63A /* Assets.xcassets */; };
 		262E153925C73B1E00D26E2B /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E153825C73B1E00D26E2B /* GoogleMobileAds.xcframework */; };
 		262E153E25C73B9200D26E2B /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E153D25C73B9200D26E2B /* GoogleAppMeasurement.xcframework */; };
@@ -45,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		260CFE1225C7676D004B1B03 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		2617A86725C09AD1008DD63A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		262E153825C73B1E00D26E2B /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		262E153D25C73B9200D26E2B /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				26E6EDAB25BF394E001B97E5 /* SceneDelegate.swift */,
 				26E6EDAD25BF394E001B97E5 /* ViewController.swift */,
 				26817BCC25C2337400B27434 /* MathOperations.swift */,
-				260CFE1225C7676D004B1B03 /* Languages.swift */,
 				26E6EDAF25BF394E001B97E5 /* Main.storyboard */,
 				2617A86725C09AD1008DD63A /* Assets.xcassets */,
 				26E6EDB725BF394F001B97E5 /* LaunchScreen.storyboard */,
@@ -456,7 +453,6 @@
 				26817BCD25C2337400B27434 /* MathOperations.swift in Sources */,
 				26E6EDB425BF394E001B97E5 /* Smart_Car.xcdatamodeld in Sources */,
 				26E6EDAC25BF394E001B97E5 /* SceneDelegate.swift in Sources */,
-				260CFE1325C7676D004B1B03 /* Languages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

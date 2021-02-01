@@ -6,9 +6,9 @@
   
 */
 
-"msgFuelConsumption" = "Расход топлива";
+"msgFuelConsumption" = "Расход";
 
-"msgDistance" = "Пройденное расстояние";
+"msgDistance" = "Расстояние";
 
 "msgContinue" = "Далее";
 
@@ -20,18 +20,18 @@
 
 "msgKilometersResult" = "Километров";
 
-"msgGallons" = "Галлон";
+"msgGallons" = "Галлоны";
 
 "msgGallonsResult" = "Галлонов";
 
 "msgMiles" = "Мили";
 
-"msgMilesResult" = "Миля";
+"msgMilesResult" = "Миль";
 
-"msgFuelConsumptionAndDistance" = "Расход топлива и пройденное расстояние";
+"msgFuelConsumptionAndDistance" = "Расход и расстояние";
 
 "msgEnterTheFollowingData" = "Впиши следующие данные";
 
-"msgYourFuelConsumptionIs" = "Ваш расход выносит:";
+"msgYourFuelConsumptionIs" = "Ваш расход:";
 
 "buttonCalculate" = "Рассчитать";
