@@ -6,7 +6,7 @@
   
 */
 
-"msgFuelConsumption" = "Расход";
+"msgFuelConsumption" = "Расход толива";
 
 "msgDistance" = "Расстояние";
 
@@ -28,7 +28,7 @@
 
 "msgMilesResult" = "Миль";
 
-"msgFuelConsumptionAndDistance" = "Расход и расстояние";
+"msgFuelConsumptionAndDistance" = "Расход топлива и расстояние";
 
 "msgEnterTheFollowingData" = "Впиши следующие данные";
 
