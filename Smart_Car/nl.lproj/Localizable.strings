@@ -6,11 +6,11 @@
   
 */
 
-"msgFuelConsumption" = "Fuel consumption";
+"msgFuelConsumption" = "Brandstof consumptie";
 
-"msgDistance" = "Distance";
+"msgDistance" = "Afstand";
 
-"msgContinue" = "Continue";
+"msgContinue" = "Doorgaan";
 
 "msgLiters" = "Liters";
 
@@ -24,17 +24,17 @@
 
 "msgGallonsResult" = "Gallons";
 
-"msgMiles" = "Miles";
+"msgMiles" = "Mijl";
 
-"msgMilesResult" = "Miles";
+"msgMilesResult" = "Mijl";
 
-"msgFuelConsumptionAndDistance" = "Fuel consumption and Distance";
+"msgFuelConsumptionAndDistance" = "Brandstof consumptie and Afstand";
 
-"msgEnterTheFollowingData" = "Enter the following data";
+"msgEnterTheFollowingData" = "Kom de volgende datum";
 
-"msgYourFuelConsumptionIs" = "Your fuel consumption is:";
+"msgYourFuelConsumptionIs" = "Je brandstof consumptie is:";
 
-"buttonCalculate" = "Calculate";
+"buttonCalculate" = "Berekenen";
 
 
 
