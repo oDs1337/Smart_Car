@@ -81,7 +81,7 @@ extension UITextField{
     doneToolbar.barStyle = UIBarStyle.default
 
     let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-    let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: myAction)
+    let done: UIBarButtonItem = UIBarButtonItem(title: "buttonDone".localized, style: UIBarButtonItem.Style.done, target: self, action: myAction)
 
     var items = [UIBarButtonItem]()
     items.append(flexSpace)
@@ -106,7 +106,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var kindOfDistance:String = ""
     var kindOfDistanceResult:String = ""
     var systemLanguage:String = ""
-    var maxPossibleNumber:Int = 6
+    let maxPossibleNumber:Int = 2147483647
     
     //  init classes
     var math = MathOperations()
@@ -255,10 +255,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func isNumberCorrect(answer: String) -> Bool
     {
         //  unwrapped because program already checked if fields are empty
-        let number:Int = Int(answer)!
+        
+        let number:Double = Double(answer)!
         var result:Bool = false
         
-        if(number == 0 || number >= maxPossibleNumber)
+        if(number == 0 || number >= Double(maxPossibleNumber))
         {
             result = false
         }
