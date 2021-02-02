@@ -106,6 +106,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var kindOfDistance:String = ""
     var kindOfDistanceResult:String = ""
     var systemLanguage:String = ""
+    var maxPossibleNumber:Int = 6
     
     //  init classes
     var math = MathOperations()
@@ -250,6 +251,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.placeholder = kindOfDistance
     }
     
+    //  function to check if number is valuable to count
+    func isNumberCorrect(answer: String) -> Bool
+    {
+        //  unwrapped because program already checked if fields are empty
+        let number:Int = Int(answer)!
+        var result:Bool = false
+        
+        if(number == 0 || number >= maxPossibleNumber)
+        {
+            result = false
+        }
+        else
+        {
+            result = true
+        }
+        
+        return result
+        
+    }
+    
     //  fetch device's language
     func fetchLanguage() -> String
     {
@@ -362,7 +383,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let alertMissingDataTitle = "msgEnterTheFollowingData".localized
         let messageContinue = "msgContinue".localized
         
-        
+        //  check if text fields are empty
         if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == true
         {
             //  set background color to red so user will know which text fields are missed
@@ -402,6 +423,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        //  check if numbers are != 0 and < maxPossibleNumber
+        else if isNumberCorrect(answer: fuelConsumptionTextField.text!) == false && isNumberCorrect(answer: distanceTextField.text!) == false
+        {
+            //  set background color to red so user will know which text fields are missed
+            fuelConsumptionTextField.backgroundColor = .red
+            distanceTextField.backgroundColor = .red
+            
+            whichOptionIsEmpty = "msgFuelConsumptionAndDistance".localized
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else if isNumberCorrect(answer: fuelConsumptionTextField.text!) == false
+        {
+            //  set background color to red
+            fuelConsumptionTextField.backgroundColor = .red
+            //  set background color to green
+            distanceTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+            
+            whichOptionIsEmpty = "msgFuelConsumption".localized
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else if isNumberCorrect(answer: distanceTextField.text!) == false
+        {
+            //  set background color to red
+            distanceTextField.backgroundColor = .red
+            //  set background color to gree
+            fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+            
+            whichOptionIsEmpty = "msgDistance".localized
+            let alert = UIAlertController(title: alertMissingDataTitle, message: whichOptionIsEmpty, preferredStyle: .alert)
+            alert.view.tintColor = UIColor.systemRed
+            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        //  calc result
         else if isEmptyCheck(data: fuelConsumptionTextField.text!) == false && isEmptyCheck(data: distanceTextField.text!) == false
         {
             fuelConsumption = commaToDot(data: fuelConsumptionTextField.text!)
