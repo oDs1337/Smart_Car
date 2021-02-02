@@ -255,9 +255,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func isNumberCorrect(answer: String) -> Bool
     {
         //  unwrapped because program already checked if fields are empty
-        
-        let number:Double = Double(answer)!
         var result:Bool = false
+        if isEmptyCheck(data: answer) == true
+        {
+            result = false
+        }
+        else
+        {
+        //  change comma to dot
+        let numberAsString:String = commaToDot(data: answer)
+        let number = Double(numberAsString)!
+        
         
         if(number == 0 || number >= Double(maxPossibleNumber))
         {
@@ -266,6 +274,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         else
         {
             result = true
+        }
         }
         
         return result
