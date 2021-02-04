@@ -44,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2606774E25CC5719004FA4E5 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
+		2606774F25CC5719004FA4E5 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2606775025CC571A004FA4E5 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2617A86725C09AD1008DD63A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		262E153825C73B1E00D26E2B /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		262E153D25C73B9200D26E2B /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
@@ -303,6 +306,7 @@
 				fr,
 				nl,
 				de,
+				da,
 			);
 			mainGroup = 26E6ED9D25BF394E001B97E5;
 			productRefGroup = 26E6EDA725BF394E001B97E5 /* Products */;
@@ -502,6 +506,7 @@
 				266DB65725C85BEA00CBD1A3 /* sv */,
 				266DB65D25C8646700CBD1A3 /* nl */,
 				266DB66F25C8815E00CBD1A3 /* de */,
+				2606775025CC571A004FA4E5 /* da */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				266DB64625C85B9D00CBD1A3 /* fr */,
 				266DB65B25C8646600CBD1A3 /* nl */,
 				266DB66D25C8815E00CBD1A3 /* de */,
+				2606774E25CC5719004FA4E5 /* da */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				266DB64725C85B9D00CBD1A3 /* fr */,
 				266DB65C25C8646700CBD1A3 /* nl */,
 				266DB66E25C8815E00CBD1A3 /* de */,
+				2606774F25CC5719004FA4E5 /* da */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

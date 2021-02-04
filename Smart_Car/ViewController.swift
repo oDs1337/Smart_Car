@@ -11,6 +11,7 @@
 
 import UIKit
 import GoogleMobileAds
+import GoogleUtilities
 
 
 //  extensions
@@ -170,7 +171,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //  ad managment
         let appId = "ca-app-pub-2859570082554006/1576697552"
-        // let testAppId = "ca-app-pub-3940256099942544/2934735716"
+        //let testAppId = "ca-app-pub-3940256099942544/2934735716"
         bannerView.adUnitID = appId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
