@@ -16,6 +16,17 @@ import GoogleUtilities
 
 //  extensions
 
+//  tab bar
+extension UITabBar
+{
+    static func setTransparentTabbar()
+    {
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().clipsToBounds = true
+    }
+}
+
 //  localization
 extension String {
     var localized: String {
@@ -141,6 +152,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  distance
     @IBOutlet weak var distanceOptions: UISegmentedControl!
     
+    //  view controllers
+    @IBOutlet weak var vcOptions: UISegmentedControl!
+    
+    
     //  ad banner
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -203,8 +218,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  default config
     func defaultConfig()
     {
-       
+        
+        //  tab bar items
+        self.tabBarController?.tabBar.items![0].title = "barCalculator"
+        self.tabBarController?.tabBar.items![1].title = "barHistory"
+        UITabBar.setTransparentTabbar()
+        UITabBar.appearance().tintColor = .white
+        
+        
         //  color managment
+        
+        
         //  fuel consumption
         fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
         fuelConsumptionTextField.placeHolderColor = .white
@@ -229,6 +253,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         distanceOptions.setTitle("msgKilometers".localized, forSegmentAt: 0)
         distanceOptions.setTitle("msgMiles".localized, forSegmentAt: 1)
+        
+        
+        
         
         //  dismiss keyboard
         dismissKeyboard()
