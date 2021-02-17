@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2UE-FE-WO9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo@1" translatesAutoresizingMaskIntoConstraints="NO" id="TLq-IJ-nLN">
-                                <rect key="frame" x="99" y="69" width="122" height="67"/>
+                                <rect key="frame" x="99" y="5" width="122" height="67"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Gus-f5-iog" userLabel="Stack View fetch data">
                                 <rect key="frame" x="5" y="147" width="145" height="186.5"/>
@@ -47,7 +47,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-Ah-EmE" userLabel="Stack View result">
-                                <rect key="frame" x="50" y="382" width="220" height="33"/>
+                                <rect key="frame" x="50" y="333" width="220" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45i-Oa-NET" userLabel="ButtonSubmit">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="33"/>
@@ -90,7 +90,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-bv-GUh" userLabel="Banner VIew" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="381" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="Xea-EW-he6"/>
@@ -105,7 +105,7 @@
                             <constraint firstItem="cUa-bv-GUh" firstAttribute="top" secondItem="B8B-Ah-EmE" secondAttribute="bottom" constant="15" id="4WP-Vn-O7h"/>
                             <constraint firstItem="Zb0-ex-KWl" firstAttribute="top" secondItem="GNC-fK-Ijo" secondAttribute="top" id="9BL-ni-VLh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gus-f5-iog" secondAttribute="trailing" constant="170" id="F3d-AT-jKr"/>
-                            <constraint firstItem="TLq-IJ-nLN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Hz1-8I-KRJ"/>
+                            <constraint firstItem="TLq-IJ-nLN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="Hz1-8I-KRJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zb0-ex-KWl" secondAttribute="trailing" constant="5" id="IlW-oa-01q"/>
                             <constraint firstItem="B8B-Ah-EmE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="JgL-Rl-zh3"/>
                             <constraint firstItem="TLq-IJ-nLN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LdF-eC-Hgq"/>
@@ -119,10 +119,11 @@
                             <constraint firstItem="Gus-f5-iog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="lxO-6k-87k"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="9vQ-qO-IeZ"/>
                     <navigationItem key="navigationItem" id="PcA-TR-aol">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="HX1-VS-niS" userLabel="ViewControllers">
-                            <rect key="frame" x="8" y="8.5" width="304" height="33"/>
+                            <rect key="frame" x="0.0" y="0.0" width="304" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="First"/>
@@ -145,25 +146,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.5" y="107.5"/>
+            <point key="canvasLocation" x="2040" y="107.5"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xxU-vu-aRQ">
+        <!--Tab Bar Controller-->
+        <scene sceneID="wPr-zT-LfP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2UE-FE-WO9" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ecS-Pf-eAJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zUT-RF-5DX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <navigationItem key="navigationItem" id="MrP-ud-OwZ"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VRx-V0-jy3">
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OiW-np-T9E"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DNt-QC-pm2"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dCN-6F-Ka0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDg-5B-MDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="108.42391304347827"/>
+            <point key="canvasLocation" x="1078" y="361"/>
         </scene>
     </scenes>
     <resources>
