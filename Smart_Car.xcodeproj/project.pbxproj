@@ -13,6 +13,7 @@
 		262E154325C73B9900D26E2B /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E154225C73B9900D26E2B /* GoogleUtilities.framework */; };
 		266DB64E25C85BE400CBD1A3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266DB65025C85BE400CBD1A3 /* Localizable.strings */; };
 		26817BCD25C2337400B27434 /* MathOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26817BCC25C2337400B27434 /* MathOperations.swift */; };
+		26AD6C8E25DD6D5700F00D40 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD6C8D25DD6D5700F00D40 /* HistoryController.swift */; };
 		26E6EDAA25BF394E001B97E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E6EDA925BF394E001B97E5 /* AppDelegate.swift */; };
 		26E6EDAC25BF394E001B97E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E6EDAB25BF394E001B97E5 /* SceneDelegate.swift */; };
 		26E6EDAE25BF394E001B97E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E6EDAD25BF394E001B97E5 /* ViewController.swift */; };
@@ -72,6 +73,7 @@
 		266DB66E25C8815E00CBD1A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		266DB66F25C8815E00CBD1A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26817BCC25C2337400B27434 /* MathOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperations.swift; sourceTree = "<group>"; };
+		26AD6C8D25DD6D5700F00D40 /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		26E6EDA625BF394E001B97E5 /* Smart_Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smart_Car.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E6EDA925BF394E001B97E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E6EDAB25BF394E001B97E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				266DB65025C85BE400CBD1A3 /* Localizable.strings */,
 				26E6EDA925BF394E001B97E5 /* AppDelegate.swift */,
 				26E6EDAB25BF394E001B97E5 /* SceneDelegate.swift */,
+				26AD6C8D25DD6D5700F00D40 /* HistoryController.swift */,
 				26E6EDAD25BF394E001B97E5 /* ViewController.swift */,
 				26817BCC25C2337400B27434 /* MathOperations.swift */,
 				26E6EDAF25BF394E001B97E5 /* Main.storyboard */,
@@ -461,6 +464,7 @@
 				26E6EDAA25BF394E001B97E5 /* AppDelegate.swift in Sources */,
 				26817BCD25C2337400B27434 /* MathOperations.swift in Sources */,
 				26E6EDB425BF394E001B97E5 /* Smart_Car.xcdatamodeld in Sources */,
+				26AD6C8E25DD6D5700F00D40 /* HistoryController.swift in Sources */,
 				26E6EDAC25BF394E001B97E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

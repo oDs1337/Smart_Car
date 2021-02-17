@@ -242,10 +242,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceOptions.setTitle("msgKilometers".localized, forSegmentAt: 0)
         distanceOptions.setTitle("msgMiles".localized, forSegmentAt: 1)
         
-        vcOptions.setTitle("msgCalculator", forSegmentAt: 0)
-        vcOptions.setTitle("msgHistory", forSegmentAt: 1)
-        vcOptions.defaultConfiguration()
-        vcOptions.selectedConfiguration()
+        
         
         
         //  dismiss keyboard
