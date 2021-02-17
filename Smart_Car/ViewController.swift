@@ -141,6 +141,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  distance
     @IBOutlet weak var distanceOptions: UISegmentedControl!
     
+    //  view controllers
+    @IBOutlet weak var vcOptions: UISegmentedControl!
+    
+    
     //  ad banner
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -205,6 +209,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     {
        
         //  color managment
+        
+        //  navigation bar transpaernt
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        
         //  fuel consumption
         fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
         fuelConsumptionTextField.placeHolderColor = .white
@@ -229,6 +241,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         distanceOptions.setTitle("msgKilometers".localized, forSegmentAt: 0)
         distanceOptions.setTitle("msgMiles".localized, forSegmentAt: 1)
+        
+        vcOptions.setTitle("msgCalculator", forSegmentAt: 0)
+        vcOptions.setTitle("msgHistory", forSegmentAt: 1)
+        vcOptions.defaultConfiguration()
+        vcOptions.selectedConfiguration()
+        
         
         //  dismiss keyboard
         dismissKeyboard()
