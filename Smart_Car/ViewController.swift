@@ -16,6 +16,17 @@ import GoogleUtilities
 
 //  extensions
 
+//  tab bar
+extension UITabBar
+{
+    static func setTransparentTabbar()
+    {
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().clipsToBounds = true
+    }
+}
+
 //  localization
 extension String {
     var localized: String {
@@ -207,14 +218,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  default config
     func defaultConfig()
     {
-       
-        //  color managment
         
-        //  navigation bar transpaernt
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
+        //  tab bar items
+        self.tabBarController?.tabBar.items![0].title = "barCalculator"
+        self.tabBarController?.tabBar.items![1].title = "barHistory"
+        UITabBar.setTransparentTabbar()
+        UITabBar.appearance().tintColor = .white
+        
+        
+        //  color managment
         
         
         //  fuel consumption
