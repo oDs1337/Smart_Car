@@ -223,7 +223,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.items![0].title = "barCalculator"
         self.tabBarController?.tabBar.items![1].title = "barHistory"
         UITabBar.setTransparentTabbar()
-        UITabBar.appearance().tintColor = .white
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = .white
+        
+        
         
         
         //  color managment
