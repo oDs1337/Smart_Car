@@ -106,6 +106,27 @@ extension UITextField{
  }
 }
 
+//  picker view
+extension UIViewController: UIPickerViewDataSource
+{
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    
+}
+
+extension UIViewController: UIPickerViewDelegate
+{
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "test"
+    }
+}
+
 
 
 class ViewController: UIViewController, UITextFieldDelegate {
@@ -166,6 +187,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         set { self._orientations = newValue }
     }
     
+    //  picker view
+    @IBOutlet var picker: UIPickerView!
+    
+    
     
     
     
@@ -175,6 +200,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        picker.dataSource = self
+        picker.delegate = self
+        
         
         
         
