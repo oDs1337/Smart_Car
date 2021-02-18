@@ -119,7 +119,7 @@
                             <constraint firstItem="Gus-f5-iog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="lxO-6k-87k"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9vQ-qO-IeZ"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="calculatorIcon" selectedImage="calculatorIconSelected" id="9vQ-qO-IeZ"/>
                     <navigationItem key="navigationItem" id="PcA-TR-aol">
                         <nil key="title"/>
                     </navigationItem>
@@ -160,6 +160,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6FM-i6-uGb" customClass="Tab" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="fill" id="8Kv-PN-pcA">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -175,6 +176,8 @@
     </scenes>
     <resources>
         <image name="AppLogo@1" width="122" height="67"/>
+        <image name="calculatorIcon" width="25" height="25"/>
+        <image name="calculatorIconSelected" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
