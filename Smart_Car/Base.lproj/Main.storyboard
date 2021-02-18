@@ -148,7 +148,7 @@
                         <viewLayoutGuide key="safeArea" id="jxN-vE-lji"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="YxN-LX-WuN"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="historyIcon" selectedImage="historyIconSelected" id="YxN-LX-WuN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLO-dj-lWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,6 +178,8 @@
         <image name="AppLogo@1" width="122" height="67"/>
         <image name="calculatorIcon" width="25" height="25"/>
         <image name="calculatorIconSelected" width="25" height="25"/>
+        <image name="historyIcon" width="25" height="25"/>
+        <image name="historyIconSelected" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
