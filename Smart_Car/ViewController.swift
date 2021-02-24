@@ -143,6 +143,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  init classes
     var math = MathOperations()
+    var save = SaveiCloud()
     
     //  connect labels
     //  fuel constumption
@@ -150,6 +151,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  submit button
     @IBOutlet weak var buttonCalculate: UIButton!
+    
+    //  add vehicle button
+    @IBOutlet weak var vehicleOutlet: UIButton!
     
     
     //  distance
@@ -189,7 +193,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  picker view
     @IBOutlet var picker: UIPickerView!
-    
     
     
     
@@ -260,6 +263,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //  color managment
         
+        //  add vehicle
+        vehicleOutlet.tintColor = .white
         
         //  fuel consumption
         fuelConsumptionTextField.backgroundColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
@@ -557,6 +562,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         
+    }
+    
+    @IBAction func addVehicle(_ sender: Any) {
         
     }
     
