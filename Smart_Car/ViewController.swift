@@ -194,6 +194,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         queryCar()
         
         
+        
         picker.dataSource = self
         picker.delegate = self
         
@@ -253,6 +254,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //  color managment
         
+        //  picker
+        picker.setValue(UIColor.white, forKey: "textColor")
+        
         //  add vehicle
         vehicleOutlet.tintColor = .white
         
@@ -308,6 +312,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //  query
     
+   
     
     func queryCar()
     {
@@ -319,16 +324,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let sortedRecords = records.sorted(by: { $0.creationDate! > $1.creationDate!})
             
             self.iCloudCar = sortedRecords
+            
             DispatchQueue.main.async {
                 // todo alert loading
-                sleep(4)
                 print(self.iCloudCar)
                 self.picker.reloadAllComponents()
                                                                                 
             }
+            
         }
+        
     }
     
+    //  reload picker data
+    func reloadPicerViewData()
+    {
+        DispatchQueue.main.async {
+            sleep(3)
+            print(self.iCloudCar)
+            self.picker.reloadAllComponents()
+        }
+    }
     //  function to check if number is valuable to count
     func isNumberCorrect(answer: String) -> Bool
     {
@@ -662,6 +678,8 @@ extension ViewController: UIPickerViewDelegate
         forComponent component: Int) -> String? {
         
         var result:String = ""
+        let separator:String = " | "
+        
         if(row == 0)
         {
             //  todo translation
@@ -673,8 +691,9 @@ extension ViewController: UIPickerViewDelegate
             brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
             plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
             result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
-            result += " | "
+            result += separator
             result += self.iCloudCar[row - 1].object(forKey: "plates") as! String
+            
         }
         
         return result
