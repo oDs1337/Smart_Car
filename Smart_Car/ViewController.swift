@@ -142,8 +142,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let maxPossibleNumber:Int = 2147483647
     
     //  init classes
-    var math = MathOperations()
-    var save = SaveiCloud()
+    let math = MathOperations()
+    let save = SaveiCloud()
+    let query = QueryiCloud()
     
     //  connect labels
     //  fuel constumption
@@ -344,6 +345,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return result
         
+    }
+    
+    //  reload picker components
+    func reloadPickerView()
+    {
+        DispatchQueue.main.async {
+            // todo alert loading
+            self.picker.reloadAllComponents()
+                                                                            
+        }
     }
     
     //  fetch device's language
