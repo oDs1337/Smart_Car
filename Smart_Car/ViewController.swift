@@ -12,6 +12,7 @@
 import UIKit
 import GoogleMobileAds
 import GoogleUtilities
+import CloudKit
 
 
 //  extensions
@@ -106,26 +107,7 @@ extension UITextField{
  }
 }
 
-//  picker view
-extension UIViewController: UIPickerViewDataSource
-{
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
-    }
-    
-    
-}
 
-extension UIViewController: UIPickerViewDelegate
-{
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "test"
-    }
-}
 
 
 
@@ -140,11 +122,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var kindOfDistanceResult:String = ""
     var systemLanguage:String = ""
     let maxPossibleNumber:Int = 2147483647
+    let privateDataBase = CKContainer.default().privateCloudDatabase
+    var iCloudData = [CKRecord]()
+    var iCloudCar = [CKRecord]()
+    var brand = ""
+    var plates = ""
     
     //  init classes
     let math = MathOperations()
     let save = SaveiCloud()
-    let query = QueryiCloud()
     
     //  connect labels
     //  fuel constumption
@@ -204,6 +190,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        queryCar()
+        
         
         picker.dataSource = self
         picker.delegate = self
@@ -317,6 +306,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.placeholder = kindOfDistance
     }
     
+    //  query
+    
+    
+    func queryCar()
+    {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Car", predicate: predicate)
+        
+        privateDataBase.perform(query, inZoneWith: nil) { (records, _) in
+            guard let records = records else { return }
+            let sortedRecords = records.sorted(by: { $0.creationDate! > $1.creationDate!})
+            
+            self.iCloudCar = sortedRecords
+            DispatchQueue.main.async {
+                // todo alert loading
+                sleep(4)
+                print(self.iCloudCar)
+                self.picker.reloadAllComponents()
+                                                                                
+            }
+        }
+    }
+    
     //  function to check if number is valuable to count
     func isNumberCorrect(answer: String) -> Bool
     {
@@ -347,15 +359,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    //  reload picker components
-    func reloadPickerView()
-    {
-        DispatchQueue.main.async {
-            // todo alert loading
-            self.picker.reloadAllComponents()
-                                                                            
-        }
-    }
+    
     
     //  fetch device's language
     func fetchLanguage() -> String
@@ -577,9 +581,102 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addVehicle(_ sender: Any) {
         
+        //  todo localization
+        // Create alert controller
+           let alertController = UIAlertController(title: "Add new car", message: "Input brand and your plates", preferredStyle: .alert)
+
+           // add textfield at index 0
+           alertController.addTextField(configurationHandler: {(_ textField: UITextField) -> Void in
+               textField.placeholder = "Brand"
+
+           })
+
+           // add textfield at index 1
+           alertController.addTextField(configurationHandler: {(_ textField: UITextField) -> Void in
+               textField.placeholder = "Plates"
+
+           })
+
+           // Alert action confirm
+           let confirmAction = UIAlertAction(title: "Save", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+               print("Brand: \(String(describing: alertController.textFields?[0].text))")
+               print("Plates: \(String(describing: alertController.textFields?[1].text))")
+                
+            if (alertController.textFields?[0].text == "" || alertController.textFields?[1].text == "")
+            {
+                let alertWarning = UIAlertController(title: "Warning", message: "you need to enter all data to save your car informations", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                                                    print("Canelled")})
+                
+                alertWarning.addAction(cancelAction)
+                self.present(alertWarning, animated: true, completion: nil)
+                
+                
+            }
+            let brand = alertController.textFields?[0].text
+            let plates = alertController.textFields?[1].text
+            
+            self.save.saveToCloudCar(brand: brand ?? "" , plates: plates ?? "")
+            
+            sleep(3)
+            self.queryCar()
+           })
+           alertController.addAction(confirmAction)
+
+           // Alert action cancel
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+               print("Canelled")
+           })
+           alertController.addAction(cancelAction)
+
+           // Present alert controller
+           present(alertController, animated: true, completion: nil)
+        
     }
     
     
 
 }
 
+extension ViewController: UIPickerViewDataSource
+{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+
+        return iCloudCar.count + 1
+    }
+    
+    
+}
+
+
+extension ViewController: UIPickerViewDelegate
+{
+    
+    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+        forComponent component: Int) -> String? {
+        
+        var result:String = ""
+        if(row == 0)
+        {
+            //  todo translation
+            result = "All"
+            brand = "All"
+        }
+        else
+        {
+            brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+            plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
+            result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+            result += " | "
+            result += self.iCloudCar[row - 1].object(forKey: "plates") as! String
+        }
+        
+        return result
+    }
+}
