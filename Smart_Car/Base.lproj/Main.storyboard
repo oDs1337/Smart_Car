@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6FM-i6-uGb">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,44 +13,44 @@
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="Calculator Item" customClass="ViewController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo@1" translatesAutoresizingMaskIntoConstraints="NO" id="TLq-IJ-nLN">
-                                <rect key="frame" x="153" y="49" width="122" height="67"/>
+                                <rect key="frame" x="134" y="49" width="122" height="67"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Gus-f5-iog" userLabel="Stack View fetch data">
-                                <rect key="frame" x="5" y="258" width="253" height="410"/>
+                                <rect key="frame" x="5" y="258" width="215" height="328"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel consumption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Inm-xT-jVq" userLabel="LabelFuelConsumption">
-                                        <rect key="frame" x="0.0" y="0.0" width="253" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fuel consumption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNC-fK-Ijo" userLabel="TextFieldFuelConsumption">
-                                        <rect key="frame" x="0.0" y="44.333333333333314" width="253" height="34"/>
+                                        <rect key="frame" x="0.0" y="44.333333333333314" width="215" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="qpM-fo-L1n" userLabel="LabelDistance">
-                                        <rect key="frame" x="0.0" y="102.33333333333331" width="253" height="26"/>
+                                        <rect key="frame" x="0.0" y="102.33333333333331" width="215" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKf-hb-wQv" userLabel="TextFieldDistance">
-                                        <rect key="frame" x="0.0" y="152.33333333333329" width="253" height="257.66666666666674"/>
+                                        <rect key="frame" x="0.0" y="152.33333333333331" width="215" height="175.66666666666669"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-Ah-EmE" userLabel="Stack View result">
-                                <rect key="frame" x="50" y="745" width="328" height="33"/>
+                                <rect key="frame" x="50" y="663" width="290" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45i-Oa-NET" userLabel="ButtonSubmit">
-                                        <rect key="frame" x="0.0" y="0.0" width="328" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="33"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Calculate">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +62,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="Zb0-ex-KWl" userLabel="Stack View Fuel and Distance options">
-                                <rect key="frame" x="263" y="302.33333333333326" width="160" height="365.66666666666674"/>
+                                <rect key="frame" x="225" y="302.33333333333326" width="160" height="283.66666666666674"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="300" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xmI-qr-911" userLabel="Liters, Gallons">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2EQ-NK-JKd" userLabel="Kilometers, Miles">
-                                        <rect key="frame" x="0.0" y="108" width="160" height="258.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="107.99999999999999" width="160" height="176.66666666666663"/>
                                         <segments>
                                             <segment title="Kilometres"/>
                                             <segment title="Miles"/>
@@ -90,7 +90,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-bv-GUh" userLabel="Banner VIew" customClass="GADBannerView">
-                                <rect key="frame" x="54" y="793" width="320" height="50"/>
+                                <rect key="frame" x="35" y="711" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="Xea-EW-he6"/>
@@ -98,10 +98,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="eTH-qK-pRF">
-                                <rect key="frame" x="0.0" y="116" width="423" height="142"/>
+                                <rect key="frame" x="0.0" y="116" width="385" height="142"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" id="bYV-Qt-3Iu">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="142"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="142"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -110,7 +110,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcu-xz-vae">
-                                        <rect key="frame" x="343" y="0.0" width="80" height="142"/>
+                                        <rect key="frame" x="305" y="0.0" width="80" height="142"/>
                                         <state key="normal" title="Add vehicle"/>
                                         <connections>
                                             <action selector="addVehicle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfm-jL-VHY"/>
@@ -170,25 +170,60 @@
             <objects>
                 <viewController id="iH0-9q-qbD" userLabel="History Item" customClass="HistoryController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rpx-YG-I7m">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo@1" translatesAutoresizingMaskIntoConstraints="NO" id="7jM-bx-tg9">
-                                <rect key="frame" x="153" y="49" width="122" height="67"/>
+                                <rect key="frame" x="134" y="49" width="122" height="67"/>
                             </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7k3-Ta-wE1" userLabel="whichPickerView">
+                                <rect key="frame" x="5" y="166" width="380" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchViewAction:" destination="iH0-9q-qbD" eventType="valueChanged" id="a0U-ya-Kup"/>
+                                </connections>
+                            </segmentedControl>
+                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-2t-BRa">
+                                <rect key="frame" x="5" y="207" width="385" height="504"/>
+                                <viewLayoutGuide key="safeArea" id="Eso-5Q-cDH"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpU-tu-xjW" userLabel="Banner VIew" customClass="GADBannerView">
+                                <rect key="frame" x="35" y="711" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="e8F-Lw-ecA"/>
+                                    <constraint firstAttribute="width" constant="320" id="j25-0X-XJQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jxN-vE-lji"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RpU-tu-xjW" firstAttribute="centerX" secondItem="Rpx-YG-I7m" secondAttribute="centerX" id="1Qe-nl-xwU"/>
+                            <constraint firstItem="7k3-Ta-wE1" firstAttribute="top" secondItem="7jM-bx-tg9" secondAttribute="bottom" constant="50" id="8fG-yV-vnh"/>
+                            <constraint firstItem="jxN-vE-lji" firstAttribute="trailing" secondItem="7k3-Ta-wE1" secondAttribute="trailing" constant="5" id="DTI-fY-GDB"/>
                             <constraint firstItem="7jM-bx-tg9" firstAttribute="centerX" secondItem="Rpx-YG-I7m" secondAttribute="centerX" id="Kx5-Qn-fYO"/>
+                            <constraint firstItem="qpQ-2t-BRa" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" constant="5" id="LXQ-NI-heY"/>
+                            <constraint firstItem="jxN-vE-lji" firstAttribute="bottom" secondItem="RpU-tu-xjW" secondAttribute="bottom" id="TZb-fz-AUA"/>
                             <constraint firstItem="7jM-bx-tg9" firstAttribute="top" secondItem="jxN-vE-lji" secondAttribute="top" constant="5" id="VAl-Vi-TdG"/>
+                            <constraint firstItem="RpU-tu-xjW" firstAttribute="top" secondItem="qpQ-2t-BRa" secondAttribute="bottom" id="W73-lr-iEs"/>
+                            <constraint firstItem="7k3-Ta-wE1" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" constant="5" id="qIV-hl-Tzb"/>
+                            <constraint firstItem="qpQ-2t-BRa" firstAttribute="trailing" secondItem="jxN-vE-lji" secondAttribute="trailing" id="qiD-lj-176"/>
+                            <constraint firstItem="qpQ-2t-BRa" firstAttribute="top" secondItem="7k3-Ta-wE1" secondAttribute="bottom" constant="10" id="yCU-Dc-PYn"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="historyIcon" selectedImage="historyIconSelected" id="YxN-LX-WuN"/>
+                    <connections>
+                        <outlet property="bannerView" destination="RpU-tu-xjW" id="vcm-u7-IJB"/>
+                        <outlet property="viewContainer" destination="qpQ-2t-BRa" id="AzC-dq-vIf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLO-dj-lWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="497"/>
+            <point key="canvasLocation" x="3138" y="487"/>
         </scene>
         <!--Tab-->
         <scene sceneID="LEG-sg-bmS">
