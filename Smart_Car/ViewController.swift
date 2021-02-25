@@ -127,6 +127,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var iCloudCar = [CKRecord]()
     var brand = ""
     var plates = ""
+    var fuelSymbol = "l"
+    var distanceSymbol = "km"
     
     //  init classes
     let math = MathOperations()
@@ -447,6 +449,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             kindOfFuel = "msgLiters".localized
             kindOfFuelResult = "msgLitersResult".localized
+            fuelSymbol = "l"
             //  change placeholder of fuel consumption
             fuelConsumptionTextField.placeholder = kindOfFuel
         }
@@ -454,6 +457,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             kindOfFuel = "msgGallons".localized
             kindOfFuelResult = "msgGallonsResult".localized
+            fuelSymbol = "gal"
             //  change placeholder of fuel consumption
             fuelConsumptionTextField.placeholder = kindOfFuel
         }
@@ -467,6 +471,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             kindOfDistance = "msgKilometers".localized
             kindOfDistanceResult = "msgKilometersResult".localized
+            distanceSymbol = "km"
             //  change placeholder of distance
             distanceTextField.placeholder = kindOfDistance
         }
@@ -474,6 +479,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             kindOfDistance = "msgMiles".localized
             kindOfDistanceResult = "msgMilesResult".localized
+            distanceSymbol = "mi"
             //  change placeholder of distance
             distanceTextField.placeholder = kindOfDistance
         }
@@ -586,11 +592,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         
             
             
-            let result = "\(finalResultAsString) \(self.kindOfFuelResult)/100 \(self.kindOfDistanceResult)"
+            let result = "\(finalResultAsString) \(self.fuelSymbol)/100 \(self.distanceSymbol)"
+            
             
             let save = UIAlertAction(title: messageSave, style: .default){ (_) in
-                guard let text = self.fuelConsumptionTextField.text, let text2 = self.distanceTextField.text else {return}
-                print("tfs = \(text) \(text2)")
+                
                 
                 if(self.brand == "pvAll".localized)
                 {
@@ -600,8 +606,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 {
                     self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
                 }
-                sleep(3)
-                //self.queryData()
                 
                 
             }
