@@ -182,6 +182,7 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.60161286589999996" green="0.84313267469999997" blue="0.1667303443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="switchViewAction:" destination="iH0-9q-qbD" eventType="valueChanged" id="a0U-ya-Kup"/>
                                 </connections>
@@ -219,6 +220,7 @@
                     <connections>
                         <outlet property="bannerView" destination="RpU-tu-xjW" id="vcm-u7-IJB"/>
                         <outlet property="viewContainer" destination="qpQ-2t-BRa" id="AzC-dq-vIf"/>
+                        <outlet property="whichPickerView" destination="7k3-Ta-wE1" id="ubX-4P-J1q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLO-dj-lWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

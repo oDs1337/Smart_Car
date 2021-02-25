@@ -18,6 +18,9 @@ class HistoryController: UIViewController {
     let dataVC = Smart_Car.dataViewController()
     let carVC = Smart_Car.carViewController()
     
+    @IBOutlet weak var whichPickerView: UISegmentedControl!
+    
+    
     @IBOutlet weak var bannerView: GADBannerView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +33,21 @@ class HistoryController: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
-         
+        
         
         setup()
+        defaultConfig()
         // Do any additional setup after loading the view.
+    }
+    
+    func defaultConfig()
+    {
+        whichPickerView.setTitle("msgData".localized, forSegmentAt: 0)
+        whichPickerView.setTitle("msgCars".localized, forSegmentAt: 1)
+        whichPickerView.tintColor = .white
+        
+        whichPickerView.defaultConfiguration()
+        whichPickerView.selectedConfiguration()
     }
     
     private func setup()
@@ -87,3 +101,6 @@ class HistoryController: UIViewController {
     */
 
 }
+
+
+
