@@ -37,5 +37,11 @@
 "buttonCalculate" = "Calculate";
 
 "buttonDone" = "Done";
+//update 2.0
+"msgSave" = "Save";
+
+"msgDiscard" = "Discard";
+
+"pvAll" = "All";
 
 

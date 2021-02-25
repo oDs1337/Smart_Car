@@ -488,6 +488,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var whichOptionIsEmpty = ""
         let alertMissingDataTitle = "msgEnterTheFollowingData".localized
         let messageContinue = "msgContinue".localized
+        let messageSave = "msgSave".localized
+        let messageDiscard = "msgDiscard".localized
         
         //  check if text fields are empty
         if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == true
@@ -582,8 +584,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //  alert with result of fuel usage
             let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult)", preferredStyle: .alert)
                         
-            alert.addAction(UIAlertAction(title: messageContinue, style: .default, handler: nil))
-            self.present(alert, animated: true)
+            
+            
+            let result = "\(finalResultAsString) \(self.kindOfFuelResult)/100 \(self.kindOfDistanceResult)"
+            
+            let save = UIAlertAction(title: messageSave, style: .default){ (_) in
+                guard let text = self.fuelConsumptionTextField.text, let text2 = self.distanceTextField.text else {return}
+                print("tfs = \(text) \(text2)")
+                
+                if(self.brand == "pvAll".localized)
+                {
+                    self.save.saveToCloudResult(data: result, brand: "All", plates: "")
+                }
+                else
+                {
+                    self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
+                }
+                sleep(3)
+                //self.queryData()
+                
+                
+            }
+            alert.addAction(UIAlertAction(title: messageDiscard, style: .cancel, handler: nil))
+            alert.addAction(save)
+            self.present(alert, animated: true, completion: nil)
             
             //  erase data to continue
             eraseDataInTextFields()
