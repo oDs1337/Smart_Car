@@ -188,7 +188,7 @@
                                 </connections>
                             </segmentedControl>
                             <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-2t-BRa">
-                                <rect key="frame" x="5" y="207" width="385" height="504"/>
+                                <rect key="frame" x="0.0" y="207" width="390" height="504"/>
                                 <viewLayoutGuide key="safeArea" id="Eso-5Q-cDH"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpU-tu-xjW" userLabel="Banner VIew" customClass="GADBannerView">
@@ -207,7 +207,7 @@
                             <constraint firstItem="7k3-Ta-wE1" firstAttribute="top" secondItem="7jM-bx-tg9" secondAttribute="bottom" constant="50" id="8fG-yV-vnh"/>
                             <constraint firstItem="jxN-vE-lji" firstAttribute="trailing" secondItem="7k3-Ta-wE1" secondAttribute="trailing" constant="5" id="DTI-fY-GDB"/>
                             <constraint firstItem="7jM-bx-tg9" firstAttribute="centerX" secondItem="Rpx-YG-I7m" secondAttribute="centerX" id="Kx5-Qn-fYO"/>
-                            <constraint firstItem="qpQ-2t-BRa" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" constant="5" id="LXQ-NI-heY"/>
+                            <constraint firstItem="qpQ-2t-BRa" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" id="LXQ-NI-heY"/>
                             <constraint firstItem="jxN-vE-lji" firstAttribute="bottom" secondItem="RpU-tu-xjW" secondAttribute="bottom" id="TZb-fz-AUA"/>
                             <constraint firstItem="7jM-bx-tg9" firstAttribute="top" secondItem="jxN-vE-lji" secondAttribute="top" constant="5" id="VAl-Vi-TdG"/>
                             <constraint firstItem="RpU-tu-xjW" firstAttribute="top" secondItem="qpQ-2t-BRa" secondAttribute="bottom" id="W73-lr-iEs"/>
