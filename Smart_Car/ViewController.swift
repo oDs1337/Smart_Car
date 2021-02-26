@@ -45,11 +45,12 @@ extension UIViewController: GADBannerViewDelegate{
     }
     
     //  fetch error if ad doesn't work
+    /*
     public func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError)
     {
         print(error)
     }
-    
+    */
 }
 
 //  placeholder colors
