@@ -187,7 +187,7 @@
                                     <action selector="switchViewAction:" destination="iH0-9q-qbD" eventType="valueChanged" id="a0U-ya-Kup"/>
                                 </connections>
                             </segmentedControl>
-                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-2t-BRa">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-2t-BRa">
                                 <rect key="frame" x="0.0" y="207" width="390" height="504"/>
                                 <viewLayoutGuide key="safeArea" id="Eso-5Q-cDH"/>
                             </view>

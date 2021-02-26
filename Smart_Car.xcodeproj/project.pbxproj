@@ -30,6 +30,8 @@
 		26E6EDB925BF394F001B97E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E6EDB725BF394F001B97E5 /* LaunchScreen.storyboard */; };
 		26E6EDC425BF3950001B97E5 /* Smart_CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E6EDC325BF3950001B97E5 /* Smart_CarTests.swift */; };
 		26E6EDCF25BF3950001B97E5 /* Smart_CarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E6EDCE25BF3950001B97E5 /* Smart_CarUITests.swift */; };
+		26F69BBA25E94E900020C03E /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F69BB825E94E900020C03E /* DataTableViewCell.swift */; };
+		26F69BBB25E94E900020C03E /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69BB925E94E900020C03E /* DataTableViewCell.xib */; };
 		D0C47DBA207E13E11EDFEB52 /* Pods_Smart_Car.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B18B827A0FAD9CC0366A18 /* Pods_Smart_Car.framework */; };
 		E92A34218C002B6C5B393C3B /* Pods_Smart_Car_Smart_CarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA51837F27387E45953D29D2 /* Pods_Smart_Car_Smart_CarUITests.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +105,8 @@
 		26E6EDCA25BF3950001B97E5 /* Smart_CarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Smart_CarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E6EDCE25BF3950001B97E5 /* Smart_CarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_CarUITests.swift; sourceTree = "<group>"; };
 		26E6EDD025BF3950001B97E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26F69BB825E94E900020C03E /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		26F69BB925E94E900020C03E /* DataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		41CE654FEA19D118C16787AA /* Pods-Smart_CarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart_CarTests.debug.xcconfig"; path = "Target Support Files/Pods-Smart_CarTests/Pods-Smart_CarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		69E9C572B004137612550CC3 /* Pods-Smart_Car.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart_Car.debug.xcconfig"; path = "Target Support Files/Pods-Smart_Car/Pods-Smart_Car.debug.xcconfig"; sourceTree = "<group>"; };
 		7765804F3625E5D7B5BB8527 /* Pods_Smart_CarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_CarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,8 @@
 				260ED24025E7F2CD00214C2D /* dataViewController.xib */,
 				260ED24925E7F2E100214C2D /* carViewController.swift */,
 				260ED24A25E7F2E100214C2D /* carViewController.xib */,
+				26F69BB825E94E900020C03E /* DataTableViewCell.swift */,
+				26F69BB925E94E900020C03E /* DataTableViewCell.xib */,
 			);
 			path = HistoryControllerViewControllers;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				26E6EDB925BF394F001B97E5 /* LaunchScreen.storyboard in Resources */,
 				266DB64E25C85BE400CBD1A3 /* Localizable.strings in Resources */,
 				2617A86825C09AD1008DD63A /* Assets.xcassets in Resources */,
+				26F69BBB25E94E900020C03E /* DataTableViewCell.xib in Resources */,
 				26E6EDB125BF394E001B97E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +525,7 @@
 				26E6EDB425BF394E001B97E5 /* Smart_Car.xcdatamodeld in Sources */,
 				260ED24125E7F2CD00214C2D /* dataViewController.swift in Sources */,
 				260ED24B25E7F2E100214C2D /* carViewController.swift in Sources */,
+				26F69BBA25E94E900020C03E /* DataTableViewCell.swift in Sources */,
 				26AD6C8E25DD6D5700F00D40 /* HistoryController.swift in Sources */,
 				26E6EDAC25BF394E001B97E5 /* SceneDelegate.swift in Sources */,
 			);

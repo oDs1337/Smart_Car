@@ -15,16 +15,19 @@ class dataViewController: UIViewController, UITableViewDelegate {
     
     let privateDataBase = CKContainer.default().privateCloudDatabase
     
+    let cellLabels = DataTableViewCell()
     var iCloudData = [CKRecord]()
     var iCloudCar = [CKRecord]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        let nib = UINib(nibName: "DataTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "DataTableViewCell")
         tableView.delegate = self
-        tableView.delegate = self
+        tableView.dataSource = self
         view.backgroundColor = .black
+        
         
         queryCar()
         queryData()
@@ -94,11 +97,16 @@ extension dataViewController: UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DataTableViewCell", for: indexPath) as! DataTableViewCell
+        
+        cell.brandLabel?.text = iCloudData[indexPath.row].value(forKey: "brand") as! String
+        cell.platesLabel?.text = iCloudData[indexPath.row].value(forKey: "plates") as! String
+        cell.fcLabel?.text = iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
+        /*
         let note = iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
         cell.textLabel?.text = note
-        
+        */
         return cell
     }
     
