@@ -649,9 +649,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             if (alertController.textFields?[0].text == "" || alertController.textFields?[1].text == "")
             {
-                let alertWarning = UIAlertController(title: "Warning", message: "you need to enter all data to save your car informations", preferredStyle: .alert)
+                let alertWarning = UIAlertController(title: "msgWarning", message: "msgYou need to enter all data to save your car informations", preferredStyle: .alert)
                 
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                                                     print("Canelled")})
                 
                 alertWarning.addAction(cancelAction)
@@ -659,13 +659,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 
             }
-            let brand = alertController.textFields?[0].text
-            let plates = alertController.textFields?[1].text
+            else if(alertController.textFields?[0].text?.count ?? 11 > 10)
+            {
+                let alertWarning = UIAlertController(title: "msgWarning", message: "msgBrand can't be longer than 10 characters", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                                                    print("Canelled")})
+                
+                alertWarning.addAction(cancelAction)
+                self.present(alertWarning, animated: true, completion: nil)
+            }
+            else if(alertController.textFields?[1].text?.count ?? 11 > 10)
+            {
+                let alertWarning = UIAlertController(title: "msgWarning", message: "msgPlates can't be longer than 10 character", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                                                    print("Canelled")})
+                
+                alertWarning.addAction(cancelAction)
+                self.present(alertWarning, animated: true, completion: nil)
+                
+            }
+            else
+            {
+                let brand = alertController.textFields?[0].text
+                let plates = alertController.textFields?[1].text
             
-            self.save.saveToCloudCar(brand: brand ?? "" , plates: plates ?? "")
+                self.save.saveToCloudCar(brand: brand ?? "" , plates: plates ?? "")
             
-            sleep(3)
-            self.queryCar()
+                sleep(3)
+                self.queryCar()
+            }
            })
            alertController.addAction(confirmAction)
 
