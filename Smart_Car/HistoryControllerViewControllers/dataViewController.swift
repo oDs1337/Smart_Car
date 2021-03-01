@@ -18,6 +18,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     let cellLabels = DataTableViewCell()
     var iCloudData = [CKRecord]()
     var iCloudCar = [CKRecord]()
+    let heighCell = 44
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,16 @@ class dataViewController: UIViewController, UITableViewDelegate {
         
         queryCar()
         queryData()
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func scrollFix(recordsCounter:Int, heightCell:Int)
+    {
+        let result:CGFloat = CGFloat(recordsCounter * heightCell)
+        tableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: result,right: 0)
+  
     }
     
     @objc func queryCar()
@@ -44,7 +54,6 @@ class dataViewController: UIViewController, UITableViewDelegate {
             self.iCloudCar = sortedRecords
             print(self.iCloudData)
             DispatchQueue.main.async {
-                
                 
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
@@ -66,9 +75,12 @@ class dataViewController: UIViewController, UITableViewDelegate {
             print(self.iCloudData)
             DispatchQueue.main.async {
                 
+                let recordsCounter:Int = self.iCloudData.count
+                self.scrollFix(recordsCounter: recordsCounter, heightCell: self.heighCell)
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
                 print(self.iCloudData)
+                
                 sleep(3)
             }
             
