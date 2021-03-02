@@ -23,7 +23,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </pickerView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-9z-S6J">
-                    <rect key="frame" x="0.0" y="92" width="375" height="686"/>
+                    <rect key="frame" x="0.0" y="92" width="375" height="380"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="3HR-LE-LWc"/>
                         <outlet property="delegate" destination="-1" id="hfo-pD-Y12"/>
@@ -32,11 +32,11 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
+                <constraint firstItem="Fm4-9z-S6J" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-306" id="F80-cV-7WD"/>
                 <constraint firstItem="Fm4-9z-S6J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="L83-7I-Z43"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fm4-9z-S6J" secondAttribute="trailing" id="Td5-LV-H8G"/>
                 <constraint firstItem="yVG-vt-qnW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="onF-XV-5e4"/>
                 <constraint firstAttribute="trailing" secondItem="yVG-vt-qnW" secondAttribute="trailing" id="rA9-J3-1QD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Fm4-9z-S6J" secondAttribute="bottom" id="rJQ-C7-ghh"/>
                 <constraint firstItem="yVG-vt-qnW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zBW-AX-rbA"/>
                 <constraint firstItem="Fm4-9z-S6J" firstAttribute="top" secondItem="yVG-vt-qnW" secondAttribute="bottom" id="zWG-Mc-VrQ"/>
             </constraints>

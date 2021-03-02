@@ -29,13 +29,14 @@ class dataViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = self
         view.backgroundColor = .black
         
-        
+
         queryCar()
         queryData()
         
         
         // Do any additional setup after loading the view.
     }
+    
     
     func scrollFix(recordsCounter:Int, heightCell:Int)
     {

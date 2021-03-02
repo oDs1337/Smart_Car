@@ -40,6 +40,7 @@ class HistoryController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     func defaultConfig()
     {
         whichPickerView.setTitle("msgData".localized, forSegmentAt: 0)
