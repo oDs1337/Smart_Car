@@ -19,6 +19,7 @@ class DataTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         backgroundColor = .black
+        fcLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         
     }
 

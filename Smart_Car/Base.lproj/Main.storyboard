@@ -181,8 +181,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7k3-Ta-wE1" userLabel="whichPickerView">
-                                <rect key="frame" x="5" y="166" width="380" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7k3-Ta-wE1" userLabel="whichPickerView">
+                                <rect key="frame" x="0.0" y="166" width="390" height="32"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>

@@ -19,6 +19,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     var iCloudData = [CKRecord]()
     var iCloudCar = [CKRecord]()
     let heighCell = 44
+    let delimeter = " "
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,19 @@ class dataViewController: UIViewController, UITableViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    func fetchNumberResult(resultAsString:String, delimiter:String) -> Double
+    {
+        let result = resultAsString.components(separatedBy: delimiter).first
+        if let number = Double(result!)
+        {
+            return number
+        }
+        else
+        {
+            return 0
+        }
+        
+    }
     
     func scrollFix(recordsCounter:Int, heightCell:Int)
     {
@@ -116,6 +130,23 @@ extension dataViewController: UITableViewDataSource
         cell.brandLabel?.text = iCloudData[indexPath.row].value(forKey: "brand") as! String
         cell.platesLabel?.text = iCloudData[indexPath.row].value(forKey: "plates") as! String
         cell.fcLabel?.text = iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
+        var number = fetchNumberResult(resultAsString: iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String, delimiter: delimeter)
+        if number <= 10
+        {
+            cell.fcLabel?.textColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
+        }
+        else if number > 10 && number < 15
+        {
+            cell.fcLabel?.textColor = #colorLiteral(red: 1, green: 0.6629326242, blue: 0.2458915242, alpha: 1)
+        }
+        else if number >= 15
+        {
+            cell.fcLabel?.textColor = #colorLiteral(red: 1, green: 0, blue: 0.0187217119, alpha: 1)
+        }
+        else
+        {
+            cell.fcLabel?.textColor = .white
+        }
         /*
         let note = iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
         cell.textLabel?.text = note
