@@ -143,7 +143,7 @@ extension dataViewController: UITableViewDataSource
         }
         else if number > 10 && number < 15
         {
-            cell.fcLabel?.textColor = #colorLiteral(red: 1, green: 0.6629326242, blue: 0.2458915242, alpha: 1)
+            cell.fcLabel?.textColor = #colorLiteral(red: 1, green: 0.9882281123, blue: 0.1349969075, alpha: 1)
         }
         else if number >= 15
         {
