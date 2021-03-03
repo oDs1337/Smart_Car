@@ -101,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="116" width="385" height="142"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" id="bYV-Qt-3Iu">
-                                        <rect key="frame" x="0.0" y="0.0" width="281" height="142"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="142"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -176,20 +176,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo@1" translatesAutoresizingMaskIntoConstraints="NO" id="7jM-bx-tg9">
                                 <rect key="frame" x="134" y="49" width="122" height="67"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="6PL-iW-rlc">
-                                <rect key="frame" x="0.0" y="197" width="428" height="596"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7k3-Ta-wE1" userLabel="whichPickerView">
-                                <rect key="frame" x="0.0" y="166" width="390" height="32"/>
+                                <rect key="frame" x="5" y="166" width="380" height="32"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.60161286589999996" green="0.84313267469999997" blue="0.1667303443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="switchViewAction:" destination="iH0-9q-qbD" eventType="valueChanged" id="a0U-ya-Kup"/>
+                                    <action selector="switchViewAction:" destination="iH0-9q-qbD" eventType="valueChanged" id="GC0-eb-aef"/>
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpU-tu-xjW" userLabel="Banner VIew" customClass="GADBannerView">
@@ -200,30 +195,50 @@
                                     <constraint firstAttribute="width" constant="320" id="j25-0X-XJQ"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5F6-pM-5Om" userLabel="View ContainerData">
+                                <rect key="frame" x="0.0" y="197" width="390" height="514"/>
+                                <connections>
+                                    <segue destination="Zti-4l-OV8" kind="embed" id="4HX-HF-DLG"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUS-x7-jS5" userLabel="Container ViewCar">
+                                <rect key="frame" x="0.0" y="197" width="390" height="514"/>
+                                <connections>
+                                    <segue destination="JY9-bL-H7f" kind="embed" id="ujD-3B-fHZ"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jxN-vE-lji"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RpU-tu-xjW" firstAttribute="centerX" secondItem="Rpx-YG-I7m" secondAttribute="centerX" id="1Qe-nl-xwU"/>
                             <constraint firstItem="7k3-Ta-wE1" firstAttribute="top" secondItem="7jM-bx-tg9" secondAttribute="bottom" constant="50" id="8fG-yV-vnh"/>
+                            <constraint firstItem="5F6-pM-5Om" firstAttribute="top" secondItem="7k3-Ta-wE1" secondAttribute="bottom" id="BXh-eH-9pF"/>
+                            <constraint firstItem="jxN-vE-lji" firstAttribute="trailing" secondItem="zUS-x7-jS5" secondAttribute="trailing" id="DOm-9e-kXF"/>
                             <constraint firstItem="jxN-vE-lji" firstAttribute="trailing" secondItem="7k3-Ta-wE1" secondAttribute="trailing" constant="5" id="DTI-fY-GDB"/>
+                            <constraint firstItem="5F6-pM-5Om" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" id="Jcd-7v-z7r"/>
+                            <constraint firstItem="RpU-tu-xjW" firstAttribute="top" secondItem="5F6-pM-5Om" secondAttribute="bottom" id="K4D-Ih-tzo"/>
                             <constraint firstItem="7jM-bx-tg9" firstAttribute="centerX" secondItem="Rpx-YG-I7m" secondAttribute="centerX" id="Kx5-Qn-fYO"/>
+                            <constraint firstItem="RpU-tu-xjW" firstAttribute="top" secondItem="zUS-x7-jS5" secondAttribute="bottom" id="QmG-ro-Ihc"/>
+                            <constraint firstItem="zUS-x7-jS5" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" id="T4L-lO-PEJ"/>
                             <constraint firstItem="jxN-vE-lji" firstAttribute="bottom" secondItem="RpU-tu-xjW" secondAttribute="bottom" id="TZb-fz-AUA"/>
                             <constraint firstItem="7jM-bx-tg9" firstAttribute="top" secondItem="jxN-vE-lji" secondAttribute="top" constant="5" id="VAl-Vi-TdG"/>
-                            <constraint firstItem="6PL-iW-rlc" firstAttribute="top" secondItem="7k3-Ta-wE1" secondAttribute="bottom" id="bwc-LY-356"/>
+                            <constraint firstItem="jxN-vE-lji" firstAttribute="trailing" secondItem="5F6-pM-5Om" secondAttribute="trailing" id="peE-9R-wIs"/>
                             <constraint firstItem="7k3-Ta-wE1" firstAttribute="leading" secondItem="jxN-vE-lji" secondAttribute="leading" constant="5" id="qIV-hl-Tzb"/>
+                            <constraint firstItem="zUS-x7-jS5" firstAttribute="top" secondItem="7k3-Ta-wE1" secondAttribute="bottom" id="wFl-gQ-ISD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="historyIcon" selectedImage="historyIconSelected" id="YxN-LX-WuN"/>
                     <connections>
                         <outlet property="bannerView" destination="RpU-tu-xjW" id="vcm-u7-IJB"/>
-                        <outlet property="viewContainer" destination="6PL-iW-rlc" id="klR-GU-ew1"/>
+                        <outlet property="carViewContainer" destination="zUS-x7-jS5" id="XzY-E8-IHK"/>
+                        <outlet property="viewContainer" destination="5F6-pM-5Om" id="Af1-zc-4hz"/>
                         <outlet property="whichPickerView" destination="7k3-Ta-wE1" id="ubX-4P-J1q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLO-dj-lWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3137.3831775700933" y="486.60907127429812"/>
+            <point key="canvasLocation" x="3141" y="703"/>
         </scene>
         <!--Tab-->
         <scene sceneID="LEG-sg-bmS">
@@ -243,6 +258,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOw-ca-SK5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2040" y="107.34597156398104"/>
+        </scene>
+        <!--Data VC Controller-->
+        <scene sceneID="PJF-gc-3mu">
+            <objects>
+                <viewController id="Zti-4l-OV8" userLabel="Data VC Controller" customClass="VCsController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bvI-CZ-NVf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="514"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctw-Eu-yNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3989" y="594"/>
+        </scene>
+        <!--Car VC Controller-->
+        <scene sceneID="AqY-Ek-SvU">
+            <objects>
+                <viewController id="JY9-bL-H7f" userLabel="Car VC Controller" customClass="CarsController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1PV-zc-m5S">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="514"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="maK-JI-fYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3988" y="1034"/>
         </scene>
     </scenes>
     <resources>

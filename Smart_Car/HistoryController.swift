@@ -15,8 +15,12 @@ class HistoryController: UIViewController {
 
     @IBOutlet weak var viewContainer: UIView!
     
-    let dataVC = Smart_Car.dataViewController()
-    let carVC = Smart_Car.carViewController()
+    //let dataVC = Smart_Car.dataViewController()
+    //let carVC = Smart_Car.carViewController()
+    let VCController = VCsController()
+    let carViewController = CarsController()
+    
+    @IBOutlet weak var carViewContainer: UIView!
     
     @IBOutlet weak var whichPickerView: UISegmentedControl!
     
@@ -54,7 +58,7 @@ class HistoryController: UIViewController {
     private func setup()
     {
         
-        
+        /*
         addChild(dataVC)
         addChild(carVC)
         
@@ -64,31 +68,47 @@ class HistoryController: UIViewController {
         dataVC.didMove(toParent: self)
         carVC.didMove(toParent: self)
         
+        /*
         dataVC.view.frame = self.view.bounds
         carVC.view.frame = self.view.bounds
+        */
         carVC.view.isHidden = true
+ */
+        carViewContainer.isHidden = true
     }
     
     @IBAction func switchViewAction(_ sender: UISegmentedControl) {
         
-        
+        /*
         dataVC.view.isHidden = true
         carVC.view.isHidden = true
+        */
+        viewContainer.isHidden = true
+        carViewContainer.isHidden = true
+   
         
         switch sender.selectedSegmentIndex
         {
         case 0:
+            /*
             viewContainer.bringSubviewToFront(dataVC.view)
             dataVC.view.isHidden = false
+            */
+            viewContainer.isHidden = false
             break
         case 1:
+            /*
             viewContainer.bringSubviewToFront(carVC.view)
             carVC.view.isHidden = false
+            */
+            carViewContainer.isHidden = false
             break
         default:
             break
         }
+ 
     }
+ 
     
     
     /*
