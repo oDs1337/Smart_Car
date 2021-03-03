@@ -12,6 +12,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var picker: UIPickerView!
     
     let privateDataBase = CKContainer.default().privateCloudDatabase
     
@@ -20,6 +21,8 @@ class dataViewController: UIViewController, UITableViewDelegate {
     var iCloudCar = [CKRecord]()
     let heighCell = 44
     let delimeter = " "
+    var brand = ""
+    var plates = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,9 @@ class dataViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .black
+        picker.dataSource = self
+        picker.delegate = self
+        picker.setValue(UIColor.white, forKey: "textColor")
         
 
         queryCar()
@@ -70,8 +76,8 @@ class dataViewController: UIViewController, UITableViewDelegate {
             print(self.iCloudData)
             DispatchQueue.main.async {
                 
-                self.tableView.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
+                print(self.iCloudCar)
+                self.picker.reloadAllComponents()
                 
                 sleep(3)
             }
@@ -155,4 +161,47 @@ extension dataViewController: UITableViewDataSource
     }
     
     
+}
+extension dataViewController: UIPickerViewDataSource
+{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+
+        return iCloudCar.count + 1
+    }
+    
+    
+}
+
+extension dataViewController: UIPickerViewDelegate
+{
+    
+    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+        forComponent component: Int) -> String? {
+        
+        var result:String = ""
+        let separator:String = " | "
+        
+        if(row == 0)
+        {
+            //  todo translation
+            result = "All"
+            brand = "All"
+        }
+        else
+        {
+            brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+            plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
+            result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+            result += separator
+            result += self.iCloudCar[row - 1].object(forKey: "plates") as! String
+            
+        }
+        
+        return result
+    }
 }

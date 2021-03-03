@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="dataViewController" customModule="Smart_Car" customModuleProvider="target">
             <connections>
+                <outlet property="picker" destination="yVG-vt-qnW" id="GLx-d8-xcX"/>
                 <outlet property="tableView" destination="Fm4-9z-S6J" id="lUy-9y-6eW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,6 +22,10 @@
                 <pickerView contentMode="scaleToFill" id="yVG-vt-qnW">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="Pdf-g2-dSn"/>
+                        <outlet property="delegate" destination="i5M-Pr-FkT" id="caf-ew-uc3"/>
+                    </connections>
                 </pickerView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-9z-S6J">
                     <rect key="frame" x="0.0" y="92" width="375" height="686"/>
