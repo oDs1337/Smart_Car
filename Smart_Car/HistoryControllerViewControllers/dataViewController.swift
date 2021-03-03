@@ -90,8 +90,8 @@ class dataViewController: UIViewController, UITableViewDelegate {
             print(self.iCloudData)
             DispatchQueue.main.async {
                 
-                let recordsCounter:Int = self.iCloudData.count
-                self.scrollFix(recordsCounter: recordsCounter, heightCell: self.heighCell)
+                //let recordsCounter:Int = self.iCloudData.count
+                //self.scrollFix(recordsCounter: recordsCounter, heightCell: self.heighCell)
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
                 print(self.iCloudData)
