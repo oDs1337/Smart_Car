@@ -739,7 +739,7 @@ extension ViewController: UIPickerViewDelegate
             result = "All"
             brand = "All"
         }
-        else
+        else if(row > 0)
         {
             brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
             plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
