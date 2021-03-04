@@ -21,7 +21,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     var iCloudCar = [CKRecord]()
     let heighCell = 44
     let delimeter = " "
-    var whichBrand = ""
+    var brand = ""
     var plates = ""
 
     override func viewDidLoad() {
@@ -190,11 +190,11 @@ extension dataViewController: UIPickerViewDelegate
         {
             //  todo translation
             result = "All"
-            whichBrand = "All"
+            brand = "All"
         }
         else
         {
-            whichBrand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+            brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
             plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
             result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
             result += separator

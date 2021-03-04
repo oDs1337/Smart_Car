@@ -332,7 +332,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 // todo alert loading
                 print(self.iCloudCar)
                 self.picker.reloadAllComponents()
-                                                                                
+                sleep(3)
             }
             
         }
@@ -599,7 +599,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let save = UIAlertAction(title: messageSave, style: .default){ (_) in
                 
                 
-                if(self.brand == "pvAll".localized)
+                if(self.brand == "All")
                 {
                     self.save.saveToCloudResult(data: result, brand: "All", plates: "")
                 }
