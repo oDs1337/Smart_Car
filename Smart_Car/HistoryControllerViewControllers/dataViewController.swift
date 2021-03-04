@@ -192,7 +192,7 @@ extension dataViewController: UIPickerViewDelegate
             result = "All"
             brand = "All"
         }
-        else(row > 0)
+        else if(row > 0)
         {
             brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
             plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
