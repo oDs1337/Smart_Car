@@ -14,11 +14,8 @@ class dataViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var picker: UIPickerView!
     
-    let privateDataBase = CKContainer.default().privateCloudDatabase
-    
+    let query = QueryiCloud()
     let cellLabels = DataTableViewCell()
-    var iCloudData = [CKRecord]()
-    var iCloudCar = [CKRecord]()
     let heighCell = 44
     let delimeter = " "
     var brand = ""
@@ -37,12 +34,25 @@ class dataViewController: UIViewController, UITableViewDelegate {
         picker.setValue(UIColor.white, forKey: "textColor")
         
 
-        queryCar()
-        queryData()
+        query.queryCar()
+        reloadComponents()
+        query.queryData()
+        reloadComponents()
+        
         
         
         // Do any additional setup after loading the view.
     }
+    func reloadComponents()
+    {
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+            self.picker.reloadAllComponents()
+            sleep(3)
+        }
+    }
+    
     
     func fetchNumberResult(resultAsString:String, delimiter:String) -> Double
     {
@@ -65,49 +75,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
   
     }
     
-    @objc func queryCar()
-    {
-        let query = CKQuery(recordType: "Car", predicate: NSPredicate(value: true))
-        
-        privateDataBase.perform(query, inZoneWith: nil) { (records, _) in
-            guard let records = records else { return }
-            let sortedRecords = records.sorted(by: { $0.creationDate! > $1.creationDate!})
-            self.iCloudCar = sortedRecords
-            print(self.iCloudData)
-            DispatchQueue.main.async {
-                
-                print(self.iCloudCar)
-                self.picker.reloadAllComponents()
-                
-                sleep(3)
-            }
-            
-        }
-    }
-
-    @objc func queryData()
-    {
-        let query = CKQuery(recordType: "Data", predicate: NSPredicate(value: true))
-        
-        privateDataBase.perform(query, inZoneWith: nil) { (records, _) in
-            guard let records = records else { return }
-            let sortedRecords = records.sorted(by: { $0.creationDate! > $1.creationDate!})
-            self.iCloudData = sortedRecords
-            print(self.iCloudData)
-            DispatchQueue.main.async {
-                
-                //let recordsCounter:Int = self.iCloudData.count
-                //self.scrollFix(recordsCounter: recordsCounter, heightCell: self.heighCell)
-                self.tableView.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
-                print(self.iCloudData)
-                
-                sleep(3)
-            }
-            
-        }
-    }
-
+    
     /*
     // MARK: - Navigation
 
@@ -126,17 +94,17 @@ extension dataViewController: UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return iCloudData.count
+        return query.iCloudData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataTableViewCell", for: indexPath) as! DataTableViewCell
         
-        cell.brandLabel?.text = iCloudData[indexPath.row].value(forKey: "brand") as! String
-        cell.platesLabel?.text = iCloudData[indexPath.row].value(forKey: "plates") as! String
-        cell.fcLabel?.text = iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
-        var number = fetchNumberResult(resultAsString: iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String, delimiter: delimeter)
+        cell.brandLabel?.text = query.iCloudData[indexPath.row].value(forKey: "brand") as! String
+        cell.platesLabel?.text = query.iCloudData[indexPath.row].value(forKey: "plates") as! String
+        cell.fcLabel?.text = query.iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
+        var number = fetchNumberResult(resultAsString: query.iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String, delimiter: delimeter)
         if number <= 10
         {
             cell.fcLabel?.textColor = #colorLiteral(red: 0.6011776924, green: 0.8441928029, blue: 0.1656403244, alpha: 1)
@@ -171,7 +139,7 @@ extension dataViewController: UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
 
-        return iCloudCar.count + 1
+        return query.iCloudCar.count + 1
     }
     
     
@@ -194,11 +162,11 @@ extension dataViewController: UIPickerViewDelegate
         }
         else if(row > 0)
         {
-            brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
-            plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
-            result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+            brand = self.query.iCloudCar[row - 1].object(forKey: "brand") as! String
+            plates = self.query.iCloudCar[row - 1].object(forKey: "plates") as! String
+            result = self.query.iCloudCar[row - 1].object(forKey: "brand") as! String
             result += separator
-            result += self.iCloudCar[row - 1].object(forKey: "plates") as! String
+            result += self.query.iCloudCar[row - 1].object(forKey: "plates") as! String
             
         }
         

@@ -13,6 +13,7 @@
 		260ED24B25E7F2E100214C2D /* carViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260ED24925E7F2E100214C2D /* carViewController.swift */; };
 		260ED24C25E7F2E100214C2D /* carViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260ED24A25E7F2E100214C2D /* carViewController.xib */; };
 		2617A86825C09AD1008DD63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2617A86725C09AD1008DD63A /* Assets.xcassets */; };
+		26209B1E25F12FC7006C4486 /* QueryiCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26209B1D25F12FC7006C4486 /* QueryiCloud.swift */; };
 		262E153925C73B1E00D26E2B /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E153825C73B1E00D26E2B /* GoogleMobileAds.xcframework */; };
 		262E153E25C73B9200D26E2B /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E153D25C73B9200D26E2B /* GoogleAppMeasurement.xcframework */; };
 		262E154325C73B9900D26E2B /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E154225C73B9900D26E2B /* GoogleUtilities.framework */; };
@@ -64,6 +65,7 @@
 		260ED24925E7F2E100214C2D /* carViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carViewController.swift; sourceTree = "<group>"; };
 		260ED24A25E7F2E100214C2D /* carViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = carViewController.xib; sourceTree = "<group>"; };
 		2617A86725C09AD1008DD63A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26209B1D25F12FC7006C4486 /* QueryiCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryiCloud.swift; sourceTree = "<group>"; };
 		262E153825C73B1E00D26E2B /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		262E153D25C73B9200D26E2B /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		262E154225C73B9900D26E2B /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				2659FA2125E69951000D33E6 /* SaveiCloud.swift */,
+				26209B1D25F12FC7006C4486 /* QueryiCloud.swift */,
 			);
 			path = CloudConnection;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				26F69BBA25E94E900020C03E /* DataTableViewCell.swift in Sources */,
 				26AD6C8E25DD6D5700F00D40 /* HistoryController.swift in Sources */,
 				26E3B31625EFEC0800050AFF /* VCsController.swift in Sources */,
+				26209B1E25F12FC7006C4486 /* QueryiCloud.swift in Sources */,
 				26E6EDAC25BF394E001B97E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
