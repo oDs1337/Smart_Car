@@ -599,21 +599,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let save = UIAlertAction(title: messageSave, style: .default){ (_) in
                 
                 
-                if(self.brand == "All")
-                {
-                    self.save.saveToCloudResult(data: result, brand: "All", plates: "")
-                }
-                else
-                {
-                    self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
-                }
+                
+            self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
+                
+                
                 
                 
             }
             alert.addAction(UIAlertAction(title: messageDiscard, style: .cancel, handler: nil))
             alert.addAction(save)
             self.present(alert, animated: true, completion: nil)
-            
+ 
             //  erase data to continue
             eraseDataInTextFields()
             
@@ -727,7 +723,7 @@ extension ViewController: UIPickerViewDataSource
 extension ViewController: UIPickerViewDelegate
 {
     
-    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
         forComponent component: Int) -> String? {
         
         var result:String = ""

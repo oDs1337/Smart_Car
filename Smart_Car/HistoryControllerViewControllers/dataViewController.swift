@@ -98,8 +98,8 @@ class dataViewController: UIViewController, UITableViewDelegate {
                 
                 //let recordsCounter:Int = self.iCloudData.count
                 //self.scrollFix(recordsCounter: recordsCounter, heightCell: self.heighCell)
-                self.tableView.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
+                self.tableView?.refreshControl?.endRefreshing()
+                self.tableView?.reloadData()
                 print(self.iCloudData)
                 
                 sleep(3)
@@ -180,7 +180,7 @@ extension dataViewController: UIPickerViewDataSource
 extension dataViewController: UIPickerViewDelegate
 {
     
-    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
         forComponent component: Int) -> String? {
         
         var result:String = ""
