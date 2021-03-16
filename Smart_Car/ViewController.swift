@@ -589,7 +589,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
             
             //  alert with result of fuel usage
-            let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult) and it's going to be saved in brand \(brand) with plates \(plates)", preferredStyle: .alert)
                         
             
             
@@ -733,12 +733,11 @@ extension ViewController: UIPickerViewDelegate
         {
             //  todo translation
             result = "All"
-            brand = "All"
+            
         }
         else
         {
-            brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
-            plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
+            
             result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
             result += separator
             result += self.iCloudCar[row - 1].object(forKey: "plates") as! String
@@ -747,4 +746,27 @@ extension ViewController: UIPickerViewDelegate
         
         return result
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+       {
+            if(row == 0)
+            {
+                brand = "All"
+                plates = ""
+                
+                self.fuelConsumptionTextField.placeholder = brand
+                self.distanceTextField.placeholder = plates
+            }
+            else
+            {
+                brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
+                plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
+                
+                self.fuelConsumptionTextField.placeholder = brand
+                self.distanceTextField.placeholder = plates
+            }
+            
+           
+            
+        }
 }
