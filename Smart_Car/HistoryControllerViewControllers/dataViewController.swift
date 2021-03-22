@@ -12,7 +12,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var picker: UIPickerView!
+  
     
     let privateDataBase = CKContainer.default().privateCloudDatabase
     
@@ -21,7 +21,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     var iCloudCar = [CKRecord]()
     let heighCell = 44
     let delimeter = " "
-    var brand = ""
+    var brand = "All"
     var plates = ""
 
     override func viewDidLoad() {
@@ -32,9 +32,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .black
-        picker.dataSource = self
-        picker.delegate = self
-        picker.setValue(UIColor.white, forKey: "textColor")
+        
         
 
         queryCar()
@@ -72,12 +70,12 @@ class dataViewController: UIViewController, UITableViewDelegate {
         privateDataBase.perform(query, inZoneWith: nil) { (records, _) in
             guard let records = records else { return }
             let sortedRecords = records.sorted(by: { $0.creationDate! > $1.creationDate!})
+            
             self.iCloudCar = sortedRecords
             print(self.iCloudData)
             DispatchQueue.main.async {
                 
                 print(self.iCloudCar)
-                self.picker.reloadAllComponents()
                 
                 sleep(3)
             }
@@ -133,9 +131,11 @@ extension dataViewController: UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataTableViewCell", for: indexPath) as! DataTableViewCell
         
+        
         cell.brandLabel?.text = iCloudData[indexPath.row].value(forKey: "brand") as! String
         cell.platesLabel?.text = iCloudData[indexPath.row].value(forKey: "plates") as! String
         cell.fcLabel?.text = iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String
+        
         var number = fetchNumberResult(resultAsString: iCloudData[indexPath.row].value(forKey: "fuel_consumption") as! String, delimiter: delimeter)
         if number <= 10
         {
@@ -143,7 +143,7 @@ extension dataViewController: UITableViewDataSource
         }
         else if number > 10 && number < 15
         {
-            cell.fcLabel?.textColor = #colorLiteral(red: 1, green: 0.9882281123, blue: 0.1349969075, alpha: 1)
+            cell.fcLabel?.textColor = #colorLiteral(red: 0.9372549057, green: 0.4657245048, blue: 0, alpha: 1)
         }
         else if number >= 15
         {
@@ -162,46 +162,5 @@ extension dataViewController: UITableViewDataSource
     
     
 }
-extension dataViewController: UIPickerViewDataSource
-{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
 
-        return iCloudCar.count + 1
-    }
-    
-    
-}
 
-extension dataViewController: UIPickerViewDelegate
-{
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
-        forComponent component: Int) -> String? {
-        
-        var result:String = ""
-        let separator:String = " | "
-        
-        if(row == 0)
-        {
-            //  todo translation
-            result = "All"
-            brand = "All"
-        }
-        else
-        {
-            brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
-            plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
-            result = self.iCloudCar[row - 1].object(forKey: "brand") as! String
-            result += separator
-            result += self.iCloudCar[row - 1].object(forKey: "plates") as! String
-            
-        }
-        
-        return result
-    }
-}

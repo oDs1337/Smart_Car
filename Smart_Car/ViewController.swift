@@ -753,17 +753,13 @@ extension ViewController: UIPickerViewDelegate
             {
                 brand = "All"
                 plates = ""
-                
-                self.fuelConsumptionTextField.placeholder = brand
-                self.distanceTextField.placeholder = plates
+             
             }
             else
             {
                 brand = self.iCloudCar[row - 1].object(forKey: "brand") as! String
                 plates = self.iCloudCar[row - 1].object(forKey: "plates") as! String
                 
-                self.fuelConsumptionTextField.placeholder = brand
-                self.distanceTextField.placeholder = plates
             }
             
            
