@@ -134,6 +134,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //  init classes
     let math = MathOperations()
     let save = SaveiCloud()
+    let dataVC = dataViewController()
     
     //  connect labels
     //  fuel constumption
@@ -612,6 +613,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
  
             //  erase data to continue
             eraseDataInTextFields()
+            //  refresh history view
             
             
         }
