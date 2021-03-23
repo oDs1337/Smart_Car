@@ -19,11 +19,13 @@ class HistoryController: UIViewController {
     //let carVC = Smart_Car.carViewController()
     let VCController = VCsController()
     let carViewController = CarsController()
+    let dataVC = dataViewController()
     
     @IBOutlet weak var carViewContainer: UIView!
     
     @IBOutlet weak var whichPickerView: UISegmentedControl!
     
+    @IBOutlet weak var historyButton: UITabBarItem!
     
     @IBOutlet weak var bannerView: GADBannerView!
     override func viewDidLoad() {

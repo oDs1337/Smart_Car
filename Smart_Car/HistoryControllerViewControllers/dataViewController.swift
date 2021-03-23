@@ -23,9 +23,18 @@ class dataViewController: UIViewController, UITableViewDelegate {
     let delimeter = " "
     var brand = "All"
     var plates = ""
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer =  Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { (timer) in
+            self.queryData()
+            }
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(queryData), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
         
         let nib = UINib(nibName: "DataTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DataTableViewCell")
@@ -34,8 +43,9 @@ class dataViewController: UIViewController, UITableViewDelegate {
         view.backgroundColor = .black
         
         
+        
 
-        queryCar()
+        
         queryData()
         
         
@@ -63,26 +73,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
   
     }
     
-    @objc func queryCar()
-    {
-        let query = CKQuery(recordType: "Car", predicate: NSPredicate(value: true))
-        
-        privateDataBase.perform(query, inZoneWith: nil) { (records, _) in
-            guard let records = records else { return }
-            let sortedRecords = records.sorted(by: { $0.creationDate! > $1.creationDate!})
-            
-            self.iCloudCar = sortedRecords
-            print(self.iCloudData)
-            DispatchQueue.main.async {
-                
-                print(self.iCloudCar)
-                
-                sleep(3)
-            }
-            
-        }
-    }
-
+    
     @objc func queryData()
     {
         let query = CKQuery(recordType: "Data", predicate: NSPredicate(value: true))
@@ -96,11 +87,12 @@ class dataViewController: UIViewController, UITableViewDelegate {
                 
                 //let recordsCounter:Int = self.iCloudData.count
                 //self.scrollFix(recordsCounter: recordsCounter, heightCell: self.heighCell)
+                
                 self.tableView?.refreshControl?.endRefreshing()
                 self.tableView?.reloadData()
                 print(self.iCloudData)
                 
-                sleep(3)
+                
             }
             
         }

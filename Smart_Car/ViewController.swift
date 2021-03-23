@@ -126,7 +126,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let privateDataBase = CKContainer.default().privateCloudDatabase
     var iCloudData = [CKRecord]()
     var iCloudCar = [CKRecord]()
-    var brand = ""
+    var brand = "All"
     var plates = ""
     var fuelSymbol = "l"
     var distanceSymbol = "km"
@@ -603,7 +603,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
                 
-                
+            
                 
                 
             }

@@ -232,6 +232,7 @@
                     <connections>
                         <outlet property="bannerView" destination="RpU-tu-xjW" id="vcm-u7-IJB"/>
                         <outlet property="carViewContainer" destination="zUS-x7-jS5" id="XzY-E8-IHK"/>
+                        <outlet property="historyButton" destination="YxN-LX-WuN" id="wDQ-Rb-i3u"/>
                         <outlet property="viewContainer" destination="5F6-pM-5Om" id="Af1-zc-4hz"/>
                         <outlet property="whichPickerView" destination="7k3-Ta-wE1" id="ubX-4P-J1q"/>
                     </connections>
@@ -266,6 +267,7 @@
                     <view key="view" contentMode="scaleToFill" id="bvI-CZ-NVf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="514"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gRB-vd-QnT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -280,6 +282,7 @@
                     <view key="view" contentMode="scaleToFill" id="1PV-zc-m5S">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="514"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dc0-Ce-9NM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
