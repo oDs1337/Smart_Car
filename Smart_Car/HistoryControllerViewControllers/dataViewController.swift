@@ -24,13 +24,12 @@ class dataViewController: UIViewController, UITableViewDelegate {
     var brand = "All"
     var plates = ""
     var timer: Timer?
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer =  Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { (timer) in
-            self.queryData()
-            }
+        
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(queryData), for: .valueChanged)
@@ -42,14 +41,41 @@ class dataViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = self
         view.backgroundColor = .black
         
-        
-        
-
+        let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+            notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        reloadData()
         
         queryData()
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func appMovedToBackground()
+    {
+        
+        disableReloadData()
+    }
+    @objc func appMovedToForeground()
+    {
+        
+        reloadData()
+    }
+    func reloadData()
+    {
+        timer =  Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { (timer) in
+            self.queryData()
+            }
+    }
+        
+    
+    func disableReloadData()
+    {
+        if timer != nil {
+               timer?.invalidate()
+               timer = nil
+           }
     }
     
     func fetchNumberResult(resultAsString:String, delimiter:String) -> Double
@@ -96,6 +122,8 @@ class dataViewController: UIViewController, UITableViewDelegate {
             }
             
         }
+        
+        
     }
 
     /*
