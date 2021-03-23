@@ -603,7 +603,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
                 
-                self.dataVC.reloadData()
+        
                 
                 
                 

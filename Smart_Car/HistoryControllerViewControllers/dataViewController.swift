@@ -44,8 +44,9 @@ class dataViewController: UIViewController, UITableViewDelegate {
         let notificationCenter = NotificationCenter.default
             notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
             notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-        reloadData()
         
+ 
+        reloadData()
         queryData()
         
         
@@ -64,7 +65,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     }
     func reloadData()
     {
-        timer =  Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { (timer) in
+        timer =  Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { (timer) in
             self.queryData()
             }
     }
@@ -77,6 +78,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
                timer = nil
            }
     }
+ 
     
     func fetchNumberResult(resultAsString:String, delimiter:String) -> Double
     {
@@ -180,7 +182,36 @@ extension dataViewController: UITableViewDataSource
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+    
+            let recordID: CKRecord.ID = iCloudData[indexPath.row].recordID
+            iCloudData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            privateDataBase.delete(withRecordID: recordID) { (record, error) in
+                print(error)
+                guard record != nil else { return }
+                print("removed record successfully")
+            }
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        iCloudData.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        
+            
+        
+    }
 }
 
 
