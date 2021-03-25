@@ -135,6 +135,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let math = MathOperations()
     let save = SaveiCloud()
     let dataVC = dataViewController()
+    let historyVC = HistoryController()
     
     //  connect labels
     //  fuel constumption
@@ -603,7 +604,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
                 
-        
+                self.dataVC.reloadData()
                 
                 
                 

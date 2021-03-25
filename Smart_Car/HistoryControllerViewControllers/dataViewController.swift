@@ -65,11 +65,18 @@ class dataViewController: UIViewController, UITableViewDelegate {
     }
     func reloadData()
     {
-        timer =  Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { (timer) in
+        
+        
+        timer =  Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { (timer) in
             self.queryData()
-            }
+                
+        }
+        
+        
+        
     }
         
+    
     
     func disableReloadData()
     {
@@ -78,7 +85,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
                timer = nil
            }
     }
- 
+    
     
     func fetchNumberResult(resultAsString:String, delimiter:String) -> Double
     {
@@ -102,7 +109,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     }
     
     
-    @objc func queryData()
+    @objc public func queryData()
     {
         let query = CKQuery(recordType: "Data", predicate: NSPredicate(value: true))
         
@@ -201,17 +208,7 @@ extension dataViewController: UITableViewDataSource
         }
     }
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        iCloudData.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-        
-            
-        
-    }
+   
 }
 
 
