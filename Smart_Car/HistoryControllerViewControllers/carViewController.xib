@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="carViewController" customModule="Smart_Car" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="kLl-I4-44D" id="ifP-Wc-a0a"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,14 +18,30 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-I4-44D">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="zs9-l1-1iC"/>
+                        <outlet property="delegate" destination="i5M-Pr-FkT" id="Yd5-eP-cHd"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="kLl-I4-44D" secondAttribute="bottom" id="AQz-Q9-60C"/>
+                <constraint firstAttribute="trailing" secondItem="kLl-I4-44D" secondAttribute="trailing" id="EmN-Vs-Xgz"/>
+                <constraint firstItem="kLl-I4-44D" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cpF-cX-4V8"/>
+                <constraint firstItem="kLl-I4-44D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lSp-U8-aKZ"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="94"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
