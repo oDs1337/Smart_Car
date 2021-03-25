@@ -130,12 +130,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var plates = ""
     var fuelSymbol = "l"
     var distanceSymbol = "km"
+    var timer: Timer?
     
     //  init classes
     let math = MathOperations()
     let save = SaveiCloud()
     let dataVC = dataViewController()
     let historyVC = HistoryController()
+    let carsVC = carViewController()
     
     //  connect labels
     //  fuel constumption
@@ -198,7 +200,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         queryCar()
         
-        
+        let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+            notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
         picker.dataSource = self
         picker.delegate = self
@@ -229,6 +233,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         
+    }
+    
+    @objc func appMovedToBackground()
+    {
+        
+        disableReloadData()
+    }
+    @objc func appMovedToForeground()
+    {
+        
+        reloadData()
+    }
+    func reloadData()
+    {
+        
+        
+        timer =  Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { (timer) in
+            self.queryCar()
+                
+        }
+        
+        
+        
+    }
+    
+    func disableReloadData()
+    {
+        if timer != nil {
+               timer?.invalidate()
+               timer = nil
+           }
     }
     
     //  Allow to fetch only numbers
@@ -334,7 +369,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 // todo alert loading
                 print(self.iCloudCar)
                 self.picker.reloadAllComponents()
-                sleep(3)
+                
             }
             
         }
@@ -689,6 +724,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
                 sleep(3)
                 self.queryCar()
+                self.carsVC.reloadCars()
             }
            })
            alertController.addAction(confirmAction)

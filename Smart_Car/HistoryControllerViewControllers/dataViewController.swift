@@ -67,7 +67,7 @@ class dataViewController: UIViewController, UITableViewDelegate {
     {
         
         
-        timer =  Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { (timer) in
+        timer =  Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { (timer) in
             self.queryData()
                 
         }
