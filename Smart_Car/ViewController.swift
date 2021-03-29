@@ -266,14 +266,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         timer =  Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
             if self.connectionExist == false && self.userConnectionChoice == false
             {
-                self.test()
+                self.noConnectionAlert()
                 self.userConnectionChoice = true
             }
                 
         }
         
     }
-    func test()
+    func noConnectionAlert()
     {
         let alert = UIAlertController(title: "Turn on internet connaction",message: "Turon on internet connection to continue", preferredStyle: .alert)
         
