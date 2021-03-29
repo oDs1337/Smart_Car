@@ -13,7 +13,7 @@ import UIKit
 import GoogleMobileAds
 import GoogleUtilities
 import CloudKit
-
+import Network
 
 //  extensions
 
@@ -131,6 +131,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var fuelSymbol = "l"
     var distanceSymbol = "km"
     var timer: Timer?
+    let monitor = NWPathMonitor()
+    var connectionExist:Bool = false
+    var userConnectionChoice:Bool = false
     
     //  init classes
     let math = MathOperations()
@@ -207,6 +210,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         picker.dataSource = self
         picker.delegate = self
         
+        connectionMonitor()
+        checkingForConnection()
         
         
         
@@ -235,6 +240,47 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func connectionMonitor()
+    {
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied
+            {
+                self.queryCar()
+                self.connectionExist = true
+            }
+            else
+            {
+                self.connectionExist = false
+                self.userConnectionChoice = false
+            }
+            
+            print(path.isExpensive)
+        }
+        
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+    }
+    
+    func checkingForConnection()
+    {
+        timer =  Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            if self.connectionExist == false && self.userConnectionChoice == false
+            {
+                self.test()
+                self.userConnectionChoice = true
+            }
+                
+        }
+        
+    }
+    func test()
+    {
+        let alert = UIAlertController(title: "Turn on internet connaction",message: "Turon on internet connection to continue", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
     @objc func appMovedToBackground()
     {
         
@@ -639,7 +685,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
                 
-                self.dataVC.reloadData()
+                
                 
                 
                 
