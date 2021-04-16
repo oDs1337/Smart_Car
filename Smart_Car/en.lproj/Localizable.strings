@@ -38,6 +38,8 @@
 
 "buttonDone" = "Done";
 //update 2.0
+"msgCancel" = "Cancel";
+
 "msgSave" = "Save";
 
 "msgDiscard" = "Discard";
@@ -56,9 +58,19 @@
 
 "barHistory" = "History";
 
+"msgBrand" = "Brand";
+
+"msgPlates" = "Plates";
+
+"msgSaveInformationsBrand" = "And it's going to be saved in brand: "; // to check
+
+"msgSaveInformationsPlates" = "with plates: "; // to check
+
 "msgAddNewVehicleTitle" = "Add a new vehicle"; // todo it might be add A new vehicle
 
 "msgAddNewVehicleDescription" = "Enter it's brand and plates"; // to check
+
+"warningNoDataEntered" = "You need to enter either brand and plates to save your vehicle"; // to check
 
 "warningNoBrandEntered" = "You need to enter brand to save your vehicle"; // to check
 
@@ -68,10 +80,15 @@
 
 "warningTooLongPlates" = "Plates of your vehicle can not be longer than 10 characters"; // to check
 
+"warningNoConnectionTitle" = "No internet connection found"; // to check
+
+"warningNoConnectionDescription" = "You can not store or download data to iCloud without internet connection"; // to check
 
 "warningNoConnectionStorage" = "You can not store data in iCloud without internet connection"; // to check
 
 "warningNoConnectionDownload" = "You can not download data from iCloud without internet connection"; // to check
+
+"warningSomethingWentWrong" = "Something went wrong";
 
 "msgLoading" = "Loading";
 

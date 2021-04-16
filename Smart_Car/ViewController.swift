@@ -275,7 +275,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     func noConnectionAlert()
     {
-        let alert = UIAlertController(title: "Turn on internet connaction",message: "Turon on internet connection to continue", preferredStyle: .alert)
+        let alert = UIAlertController(title: "warningNoConnectionTitle".localized,message: "warningNoConnectionDescription".localized, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         
@@ -329,8 +329,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     {
         
         //  tab bar items
-        self.tabBarController?.tabBar.items![0].title = "barCalculator"
-        self.tabBarController?.tabBar.items![1].title = "barHistory"
+        self.tabBarController?.tabBar.items![0].title = "barCalculator".localized
+        self.tabBarController?.tabBar.items![1].title = "barHistory".localized
         UITabBar.setTransparentTabbar()
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.6016128659, green: 0.8431326747, blue: 0.1667303443, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = .white
@@ -580,6 +580,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let messageContinue = "msgContinue".localized
         let messageSave = "msgSave".localized
         let messageDiscard = "msgDiscard".localized
+        let messageSaveInformationsBrand = "msgSaveInformationsBrand".localized
+        let messageSaveInformationsPlates = "msgSaveInformationsPlates".localized
         
         //  check if text fields are empty
         if isEmptyCheck(data: fuelConsumptionTextField.text!) == true && isEmptyCheck(data: distanceTextField.text!) == true
@@ -672,7 +674,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
             
             //  alert with result of fuel usage
-            let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult) and it's going to be saved in brand \(brand) with plates \(plates)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult) \(messageSaveInformationsBrand) \(brand) \(messageSaveInformationsPlates) \(plates)", preferredStyle: .alert)
                         
             
             
@@ -707,32 +709,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addVehicle(_ sender: Any) {
         
-        //  todo localization
+        let messageBrand = "msgBrand".localized
+        let messagePlates = "msgPlates".localized
         // Create alert controller
-           let alertController = UIAlertController(title: "Add new car", message: "Input brand and your plates", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "msgAddNewVehicleTitle".localized, message: "msgAddNewVehicleDescription".localized, preferredStyle: .alert)
 
            // add textfield at index 0
            alertController.addTextField(configurationHandler: {(_ textField: UITextField) -> Void in
-               textField.placeholder = "Brand"
+            textField.placeholder = messageBrand
 
            })
 
            // add textfield at index 1
            alertController.addTextField(configurationHandler: {(_ textField: UITextField) -> Void in
-               textField.placeholder = "Plates"
+            textField.placeholder = messagePlates
 
            })
 
            // Alert action confirm
-           let confirmAction = UIAlertAction(title: "Save", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-               print("Brand: \(String(describing: alertController.textFields?[0].text))")
-               print("Plates: \(String(describing: alertController.textFields?[1].text))")
+        let confirmAction = UIAlertAction(title: "msgSave".localized, style: .default, handler: {(_ action: UIAlertAction) -> Void in
+               print("\(messageBrand): \(String(describing: alertController.textFields?[0].text))")
+               print("\(messagePlates): \(String(describing: alertController.textFields?[1].text))")
                 
             if (alertController.textFields?[0].text == "" || alertController.textFields?[1].text == "")
             {
-                let alertWarning = UIAlertController(title: "msgWarning", message: "msgYou need to enter all data to save your car informations", preferredStyle: .alert)
+                let alertWarning = UIAlertController(title: "warningSomethingWentWrong".localized, message: "warningNoDataEntered".localized, preferredStyle: .alert)
                 
-                let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                let cancelAction = UIAlertAction(title: "msgCancel".localized, style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                                                     print("Canelled")})
                 
                 alertWarning.addAction(cancelAction)
@@ -742,7 +745,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             else if(alertController.textFields?[0].text?.count ?? 11 > 10)
             {
-                let alertWarning = UIAlertController(title: "msgWarning", message: "msgBrand can't be longer than 10 characters", preferredStyle: .alert)
+                let alertWarning = UIAlertController(title: "warningSomethingWentWrong".localized, message: "warningTooLongBrand".localized, preferredStyle: .alert)
                 
                 let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                                                     print("Canelled")})
@@ -752,7 +755,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             else if(alertController.textFields?[1].text?.count ?? 11 > 10)
             {
-                let alertWarning = UIAlertController(title: "msgWarning", message: "msgPlates can't be longer than 10 character", preferredStyle: .alert)
+                let alertWarning = UIAlertController(title: "msgWarning", message: "warningTooLongPlates".localized, preferredStyle: .alert)
                 
                 let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                                                     print("Canelled")})
@@ -776,7 +779,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
            alertController.addAction(confirmAction)
 
            // Alert action cancel
-           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "msgCancel".localized, style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                print("Canelled")
            })
            alertController.addAction(cancelAction)
