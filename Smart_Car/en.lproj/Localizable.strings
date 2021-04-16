@@ -48,4 +48,31 @@
 
 "msgData" = "Data";
 
+"buttonAddVehicle" = "Add vehicle";
+
+"barCalculator" = "Calculator";
+
+"barHistory" = "History";
+
+"msgAddNewVehicleTitle" = "Add a new vehicle"; // todo it might be add A new vehicle
+
+"msgAddNewVehicleDescription" = "Enter it's brand and plates"; // to check
+
+"warningNoBrandEntered" = "You need to enter brand to save your vehicle"; // to check
+
+"warningNoPlatesEntered" = "You need to enter plates number to save your vehicle"; // to check
+
+"warningTooLongBrand" = "Brand of your vehicle can not be longer than 10 characters"; // to check
+
+"warningTooLongPlates" = "Plates of your vehicle can not be longer than 10 characters"; // to check
+
+
+"warningNoConnectionStorage" = "You can not store data in iCloud without internet connection"; // to check
+
+"warningNoConnectionDownload" = "You can not download data from iCloud without internet connection"; // to check
+
+"msgLoading" = "Loading";
+
+
+
 
