@@ -336,7 +336,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         UITabBar.appearance().unselectedItemTintColor = .white
         
         
-        
+        vehicleOutlet.setTitle("buttonAddVehicle".localized, for: .normal)
         
         //  color managment
         

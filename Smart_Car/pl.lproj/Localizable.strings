@@ -37,3 +37,63 @@
 "buttonCalculate" = "Oblicz";
 
 "buttonDone" = "Gotowe";
+
+//update 2.0
+"msgCancel" = "Anuluj";
+
+"msgSave" = "Zapisz";
+
+"msgDiscard" = "Odrzuć";
+
+"pvAll" = "Wszystkie";
+
+"msgCars" = "Pojazdy";
+
+"msgData" = "Dane";
+
+"buttonDelete" = "Usuń";
+
+"buttonAddVehicle" = "Dodaj pojazd";
+
+"barCalculator" = "Kalkulator";
+
+"barHistory" = "Historia";
+
+"msgBrand" = "Marka";
+
+"msgPlates" = "Tablica rejestracyjna";
+
+"msgSaveInformationsBrand" = "I zostanie zapisane w marce:"; // to check
+
+"msgSaveInformationsPlates" = "z tablicą rejestracyjną: "; // to check
+
+"msgAddNewVehicleTitle" = "Dodaj nowy pojazd"; // todo it might be add A new vehicle
+
+"msgAddNewVehicleDescription" = "Wpisz jego markę oraz tablicę rejestracyjną"; // to check
+
+"warningNoDataEntered" = "Musisz wprowadzić markę oraz tablice rejestracyjną aby dodać swój pojazd"; // to check
+
+"warningNoBrandEntered" = "Musisz dodać markę aby dodać swój pojazd"; // to check
+
+"warningNoPlatesEntered" = "Musisz wprowadzić tablicę rejestracyjną aby dodać swój pojazd"; // to check
+
+"warningTooLongBrand" = "Marka twojego pojazdu nie może być dłuższa niż 10 znaków"; // to check
+
+"warningTooLongPlates" = "Tablica rejestracyjna twojego pojazdu nie może być dłuższa niż 10 znaków"; // to check
+
+"warningNoConnectionTitle" = "Brak połączenia z internetem"; // to check
+
+"warningNoConnectionDescription" = "Nie możesz dodawać lub pobierać danych z iCloud bez aktywnego połączenia z internetem"; // to check
+
+"warningNoConnectionStorage" = "Nie możesz dodawać danych do iCloud bez aktywnego połączenia z internetem"; // to check
+
+"warningNoConnectionDownload" = "Nie możesz pobierać danych z iCloud bez aktywnego połączenia z internetem"; // to check
+
+"warningSomethingWentWrong" = "Coś poszło nie tak";
+
+"msgLoading" = "Ładowanie";
+
+
+
+
+
