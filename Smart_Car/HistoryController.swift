@@ -9,6 +9,7 @@ import UIKit
 import GoogleMobileAds
 import GoogleUtilities
 import CloudKit
+import Network
 
 
 class HistoryController: UIViewController {
@@ -20,6 +21,10 @@ class HistoryController: UIViewController {
     let VCController = VCsController()
     let carViewController = CarsController()
     let dataVC = dataViewController()
+    var timer: Timer?
+    let monitor = NWPathMonitor()
+    var connectionExist:Bool = false
+    var userConnectionChoice:Bool = false
     
     @IBOutlet weak var carViewContainer: UIView!
     
@@ -30,7 +35,7 @@ class HistoryController: UIViewController {
     @IBOutlet weak var bannerView: GADBannerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarController?.tabBar.isUserInteractionEnabled = true
         
         //  ad managment
         let appId = "ca-app-pub-2859570082554006/1576697552"
@@ -41,9 +46,97 @@ class HistoryController: UIViewController {
         bannerView.delegate = self
         
         
+
+        
+        
         setup()
         defaultConfig()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func connectionMonitor()
+    {
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied
+            {
+                
+                self.connectionExist = true
+                
+                
+            }
+            else
+            {
+                self.connectionExist = false
+                self.userConnectionChoice = false
+                
+               
+                
+            }
+            
+            print(path.isExpensive)
+        }
+        
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+    }
+    
+    func checkingForConnection()
+    {
+        timer =  Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            if self.connectionExist == false && self.userConnectionChoice == false
+            {
+                self.noConnectionAlert()
+                self.userConnectionChoice = true
+                
+            }
+            else if self.connectionExist == true
+            {
+                self.hideNoConnectionViewController()
+            }
+                
+        }
+        
+    }
+    
+    
+    
+    func noConnectionAlert()
+    {
+        
+        
+        let alert = UIAlertController(title:"warningNoConnectionTitle".localized, message: "warningNoConnectionDescription".localized, preferredStyle: .alert)
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in self.changeViewController()}))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func changeViewController()
+    {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        
+        newViewController.modalPresentationStyle = .fullScreen
+        
+        
+        
+        self.present(newViewController, animated: true, completion: nil)
+
+        
+        /*
+        self.performSegue(withIdentifier: "ChangeViewControllerID", sender: self)
+ */
+        
+        
+    }
+    
+    
+    func hideNoConnectionViewController()
+    {
+        dismiss(animated: true, completion: nil)
     }
     
    
@@ -56,6 +149,7 @@ class HistoryController: UIViewController {
         whichPickerView.defaultConfiguration()
         whichPickerView.selectedConfiguration()
     }
+    
     
     private func setup()
     {
@@ -111,6 +205,7 @@ class HistoryController: UIViewController {
  
     }
  
+    
     
     
     /*

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6FM-i6-uGb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6FM-i6-uGb">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Calculator Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Calculator Item" customClass="ViewController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" userLabel="Calculator Item" customClass="ViewController" customModule="Smart_Car" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,6 +235,7 @@
                         <outlet property="historyButton" destination="YxN-LX-WuN" id="wDQ-Rb-i3u"/>
                         <outlet property="viewContainer" destination="5F6-pM-5Om" id="Af1-zc-4hz"/>
                         <outlet property="whichPickerView" destination="7k3-Ta-wE1" id="ubX-4P-J1q"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ChangeViewControllerID" id="k3o-Sm-HI2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLO-dj-lWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -244,7 +245,7 @@
         <!--Tab-->
         <scene sceneID="LEG-sg-bmS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6FM-i6-uGb" customClass="Tab" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Tab" automaticallyAdjustsScrollViewInsets="NO" id="6FM-i6-uGb" customClass="Tab" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="fill" id="8Kv-PN-pcA">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -252,6 +253,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="8Kv-PN-pcA" id="mcu-g5-zlB"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="p2n-yH-BHv"/>
                         <segue destination="iH0-9q-qbD" kind="relationship" relationship="viewControllers" id="1mR-je-rnj"/>
                     </connections>
@@ -291,6 +293,9 @@
             <point key="canvasLocation" x="3988" y="1034"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="p2n-yH-BHv"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="AppLogo@1" width="122" height="67"/>
         <image name="calculatorIcon" width="25" height="25"/>

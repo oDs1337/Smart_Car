@@ -26,7 +26,7 @@ class carViewController: UIViewController, UITableViewDelegate  {
         super.viewDidLoad()
         
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "msgPullToRefresh".localized)
         refreshControl.addTarget(self, action: #selector(queryCars), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
         

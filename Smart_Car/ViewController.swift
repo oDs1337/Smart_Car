@@ -135,6 +135,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var connectionExist:Bool = false
     var userConnectionChoice:Bool = false
     
+    
     //  init classes
     let math = MathOperations()
     let save = SaveiCloud()
@@ -150,8 +151,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var buttonCalculate: UIButton!
     
     //  add vehicle button
-    @IBOutlet weak var vehicleOutlet: UIButton!
+    @IBOutlet var vehicleOutlet: UIButton!
     
+    //  tab bottom bar outlet
+    @IBOutlet weak var tabBar: UITabBar!
     
     //  distance
     @IBOutlet weak var labelDistance: UILabel!
@@ -178,6 +181,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var vcOptions: UISegmentedControl!
     
     
+    
+    
     //  ad banner
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -201,6 +206,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.tabBarController?.tabBar.isUserInteractionEnabled = true
+        
         queryCar()
         
         let notificationCenter = NotificationCenter.default
@@ -212,6 +219,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         connectionMonitor()
         checkingForConnection()
+        
+       
         
         
         
@@ -247,11 +256,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             {
                 self.queryCar()
                 self.connectionExist = true
+                self.enableButtonsWhichRequireConnection()
             }
             else
             {
                 self.connectionExist = false
                 self.userConnectionChoice = false
+                self.disableButtonsWhichRequireConnection()
             }
             
             print(path.isExpensive)
@@ -268,8 +279,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
             {
                 self.noConnectionAlert()
                 self.userConnectionChoice = true
+                
             }
                 
+        }
+        
+    }
+    func disableButtonsWhichRequireConnection()
+    {
+        DispatchQueue.main.async {
+            self.vehicleOutlet.isEnabled = false
+            
+            
+            self.tabBarController?.tabBar.unselectedItemTintColor = .gray
+ 
+        }
+        
+        
+    }
+    func enableButtonsWhichRequireConnection()
+    {
+        DispatchQueue.main.async {
+            self.vehicleOutlet.isEnabled = true
+            
+            
+            self.tabBarController?.tabBar.unselectedItemTintColor = .white
+ 
         }
         
     }
@@ -370,6 +405,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         distanceOptions.setTitle("msgKilometers".localized, forSegmentAt: 0)
         distanceOptions.setTitle("msgMiles".localized, forSegmentAt: 1)
+        
         
         
         
@@ -672,34 +708,53 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let finalResultAsString = NSString(string: String(format: "%.2f",math.fuelUsage(fuelConsumption: fuelConsumption, distance: distance)))
             
             //labelResult.text = "\(finalResultAsString) \(kindOfFuel)/100 \(kindOfDistance)"
-            
-            //  alert with result of fuel usage
-            let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult) \(messageSaveInformationsBrand) \(brand) \(messageSaveInformationsPlates) \(plates)", preferredStyle: .alert)
-                        
-            
-            
-            let result = "\(finalResultAsString) \(self.fuelSymbol)/100 \(self.distanceSymbol)"
-            
-            
-            let save = UIAlertAction(title: messageSave, style: .default){ (_) in
+            if (connectionExist == true)
+            {
+                //  alert with result of fuel usage
+                let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult) \(messageSaveInformationsBrand) \(brand) \(messageSaveInformationsPlates) \(plates)", preferredStyle: .alert)
+                            
                 
                 
-                
-            self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
-                
+                let result = "\(finalResultAsString) \(self.fuelSymbol)/100 \(self.distanceSymbol)"
                 
                 
-                
-                
+                let save = UIAlertAction(title: messageSave, style: .default){ (_) in
+                    
+                    
+                    
+                self.save.saveToCloudResult(data: result, brand: self.brand, plates: self.plates)
+                    
+                    
+                    
+                    
+                    
+                }
+                alert.addAction(UIAlertAction(title: messageDiscard, style: .cancel, handler: nil))
+                alert.addAction(save)
+                self.present(alert, animated: true, completion: nil)
+     
+                //  erase data to continue
+                eraseDataInTextFields()
+                //  refresh history view
             }
-            alert.addAction(UIAlertAction(title: messageDiscard, style: .cancel, handler: nil))
-            alert.addAction(save)
-            self.present(alert, animated: true, completion: nil)
- 
-            //  erase data to continue
-            eraseDataInTextFields()
-            //  refresh history view
-            
+            else if (connectionExist == false)
+            {
+                //  alert with result of fuel usage
+                let alert = UIAlertController(title: "msgYourFuelConsumptionIs".localized, message: "\(finalResultAsString) \(kindOfFuelResult)/100 \(kindOfDistanceResult) \(messageSaveInformationsBrand) \(brand) \(messageSaveInformationsPlates) \(plates)", preferredStyle: .alert)
+                            
+                
+                
+                let result = "\(finalResultAsString) \(self.fuelSymbol)/100 \(self.distanceSymbol)"
+                
+                
+                alert.addAction(UIAlertAction(title: messageDiscard, style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+     
+                //  erase data to continue
+                eraseDataInTextFields()
+                //  refresh history view
+            }
             
         }
         
@@ -747,7 +802,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             {
                 let alertWarning = UIAlertController(title: "warningSomethingWentWrong".localized, message: "warningTooLongBrand".localized, preferredStyle: .alert)
                 
-                let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                let cancelAction = UIAlertAction(title: "msgCancel".localized, style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                                                     print("Canelled")})
                 
                 alertWarning.addAction(cancelAction)
@@ -757,7 +812,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             {
                 let alertWarning = UIAlertController(title: "msgWarning", message: "warningTooLongPlates".localized, preferredStyle: .alert)
                 
-                let cancelAction = UIAlertAction(title: "msgCancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                let cancelAction = UIAlertAction(title: "msgCancel".localized, style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
                                                     print("Canelled")})
                 
                 alertWarning.addAction(cancelAction)
