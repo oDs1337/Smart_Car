@@ -62,31 +62,31 @@
 
 "msgPlates" = "Plates";
 
-"msgSaveInformationsBrand" = "And it's going to be saved in brand: "; // to check
+"msgSaveInformationsBrand" = "And it's going to be saved in brand: ";
 
-"msgSaveInformationsPlates" = "with plates: "; // to check
+"msgSaveInformationsPlates" = "with plates: ";
 
-"msgAddNewVehicleTitle" = "Add a new vehicle"; // todo it might be add A new vehicle
+"msgAddNewVehicleTitle" = "Add a new vehicle";
 
-"msgAddNewVehicleDescription" = "Enter it's brand and plates"; // to check
+"msgAddNewVehicleDescription" = "Enter it's brand and plates";
 
-"warningNoDataEntered" = "You need to enter either brand and plates to save your vehicle"; // to check
+"warningNoDataEntered" = "You need to enter either brand or plates to save your vehicle";
 
-"warningNoBrandEntered" = "You need to enter brand to save your vehicle"; // to check
+"warningNoBrandEntered" = "You need to enter brand to save your vehicle";
 
-"warningNoPlatesEntered" = "You need to enter plates number to save your vehicle"; // to check
+"warningNoPlatesEntered" = "You need to enter plates number to save your vehicle";
 
-"warningTooLongBrand" = "Brand of your vehicle can not be longer than 10 characters"; // to check
+"warningTooLongBrand" = "Brand of your vehicle can not be longer than 10 characters";
 
-"warningTooLongPlates" = "Plates of your vehicle can not be longer than 10 characters"; // to check
+"warningTooLongPlates" = "Plates of your vehicle can not be longer than 10 characters";
 
-"warningNoConnectionTitle" = "No internet connection found"; // to check
+"warningNoConnectionTitle" = "No internet connection found";
 
-"warningNoConnectionDescription" = "You can not store or download data to iCloud without internet connection"; // to check
+"warningNoConnectionDescription" = "You can not store or download data to iCloud without internet connection";
 
-"warningNoConnectionStorage" = "You can not store data in iCloud without internet connection"; // to check
+"warningNoConnectionStorage" = "You can not store data in iCloud without internet connection";
 
-"warningNoConnectionDownload" = "You can not download data from iCloud without internet connection"; // to check
+"warningNoConnectionDownload" = "You can not download data from iCloud without internet connection"; 
 
 "warningSomethingWentWrong" = "Something went wrong";
 

@@ -37,3 +37,61 @@
 "buttonCalculate" = "Beräkna";
 
 "buttonDone" = "Klart";
+//update 2.0
+"msgCancel" = "Avbryt";
+
+"msgSave" = "Spara";
+
+"msgDiscard" = "Kassera";
+
+"pvAll" = "Alla";
+
+"msgCars" = "Bilar";
+
+"msgData" = "Data";
+
+"buttonDelete" = "Radera";
+
+"buttonAddVehicle" = "Lägg till en fordon";
+
+"barCalculator" = "Kalkylator";
+
+"barHistory" = "Historia";
+
+"msgBrand" = "Märke";
+
+"msgPlates" = "Plattor";
+
+"msgSaveInformationsBrand" = "Och det kommer att bli sparad i bilmärken: ";
+
+"msgSaveInformationsPlates" = "med plattor: ";
+
+"msgAddNewVehicleTitle" = "Lägg till en ny fordon";
+
+"msgAddNewVehicleDescription" = "Ange fordons märke och plattor";
+
+"warningNoDataEntered" = "Du måste ange antingen märke eller plattor för att spara din fordon ";
+
+"warningNoBrandEntered" = "Du måste ange märke för att spara din fordon";
+
+"warningNoPlatesEntered" = "Du måste ange plattnummer för att spara din fordon";
+
+"warningTooLongBrand" = "Märken av din fordon kan inte vara längre än 10 tecken";
+
+"warningTooLongPlates" = "Plattnummer av din fordon kan inte vara längre än 10 tecken";
+
+"warningNoConnectionTitle" = "Ingen internetanslutning hittades";
+
+"warningNoConnectionDescription" = "Du kan inte lagra eller ladda ner data till icloud utan internetanslutning";
+
+"warningNoConnectionStorage" = "Du kan inte lagra data I icloud utan internetanslutning";
+
+"warningNoConnectionDownload" = "Du kan inte ladda ner data från icloud utan internetanslutning";
+
+"warningSomethingWentWrong" = "Något gick fel";
+
+"msgLoading" = "Laddar";
+
+"msgPullToRefresh" = "Dra för att uppdatera ";
+
+
