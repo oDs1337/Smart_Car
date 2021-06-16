@@ -38,3 +38,59 @@
 "buttonCalculate" = "Calculer";
 
 "buttonDone" = "Terminé";
+//update 2.0
+"msgCancel" = "Annuler";
+
+"msgSave" = "Sauvegarder";
+
+"msgDiscard" = "Vider";
+
+"pvAll" = "Toutes";
+
+"msgCars" = "Voitures";
+
+"msgData" = "Données";
+
+"buttonDelete" = "Supprimer";
+
+"buttonAddVehicle" = "Ajouter un vehicule";
+
+"barCalculator" = "Calculatrice";
+
+"barHistory" = "Historique";
+
+"msgBrand" = "Marque";
+
+"msgPlates" = "Immatriculation";
+
+"msgSaveInformationsBrand" = "Et il sera sauvegarder dans marque: ";
+
+"msgSaveInformationsPlates" = "avec Immatriculation: ";
+
+"msgAddNewVehicleTitle" = "Ajouter un nouveau véhicule";
+
+"msgAddNewVehicleDescription" = "Entrez la marque et l'immatriculation";
+
+"warningNoDataEntered" = "Vous devez indiquer la marque ou l'immatriculation du véhicule";
+
+"warningNoBrandEntered" = "Vous devez indiquer la marque pour sauvegarder votre véhicule";
+
+"warningNoPlatesEntered" = "Vous devez indiquer l'immatriculation pour sauvegarder votre véhicule";
+
+"warningTooLongBrand" = "La marque de votre véhicule ne peut pas faire plus de 10 caractères";
+
+"warningTooLongPlates" = "L'immatriculation de votre véhicule ne peut pas faire plus de 10 caractères";
+
+"warningNoConnectionTitle" = "Aucune connexion à internet detectée";
+
+"warningNoConnectionDescription" = "Vous ne pouvez pas enregistrer ou télécharger de données de iCloud sans connexion internet.";
+
+"warningNoConnectionStorage" = "Vous ne pouvez pas enregistrer de données dans iCloud sans connexion internet";
+
+"warningNoConnectionDownload" = "Vous ne pouvez pas télécharger de données depuis iCloud sans connexion internet";
+
+"warningSomethingWentWrong" = "Quelque chose ne va pas";
+
+"msgLoading" = "Chargement";
+
+"msgPullToRefresh" = "Tirer pour raffraichir la page" 
